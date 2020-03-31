@@ -1,24 +1,31 @@
-# MeetingManager
+# Final Project
+1.[Description](#1)
+2.[Features](#2)
+3.[Team](#3)
 
-## Description:
+<a name="1"></a>
+## 1. Description
+A Meeting Manager app that will allow users to create and manage meetings. This app will be built using ASP.NET Core MVC and React
 
-## A Meeting Manager app that will allow users to create and manage meetings
+<a name="2"></a>
+## 2. Features
+Belwo is the List of features that the meeting Manager Must to have:
+1. Register/Login
+2. Profile Page with bio and picture
+3. Confirm Attendance by choosing Attending or Not Attending
+4. Forum like discussion
+5. Allow users to create and delete comments
+6. Add Social Networking feature (Example: Follow/Unfollow User)
+  
+<a name="3"></a>
+## 3. Team
+1. Brian 
+2. Ming
+3. Neil
+4. Ibrahim
 
-## This app will be built using ASP.NET Core MVC and React
 
-## Features:
 
-## Register/Login
-
-## Profile Page with bio and picture
-
-## Confirm Attendance by choosing Attending or Not Attending
-
-## Forum like discussion
-
-## Allow users to create and delete comments
-
-## Add Social Networking feature (Example: Follow/Unfollow User)
 
 
 
