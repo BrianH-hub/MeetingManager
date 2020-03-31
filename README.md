@@ -2,7 +2,7 @@
 
 ## Description:
 
-## A Meeting Manager app that allow users to create and manage meetings
+## A Meeting Manager app that will allow users to create and manage meetings
 
 ## This app will be built using ASP.NET Core MVC and React
 
