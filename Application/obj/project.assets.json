@@ -1237,27 +1237,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Minghui Wang\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Minghui Wang\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Minghui Wang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
@@ -1269,11 +1266,11 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj"
+            "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj"
+            "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\Minghui Wang\\Desktop\\ssd\\finalProject\\MeetingManager\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -1301,7 +1298,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

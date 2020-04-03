@@ -11,3 +11,16 @@ C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Application\obj\D
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Application\obj\Debug\netstandard2.1\Application.csproj.CopyComplete
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Application\obj\Debug\netstandard2.1\Application.dll
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Application\obj\Debug\netstandard2.1\Application.pdb
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Application.deps.json
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Application.dll
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Application.pdb
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Domain.dll
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Persistence.dll
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Domain.pdb
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\bin\Debug\netstandard2.1\Persistence.pdb
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.csprojAssemblyReference.cache
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.AssemblyInfoInputs.cache
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.AssemblyInfo.cs
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.csproj.CopyComplete
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.dll
+C:\Users\Minghui Wang\Desktop\ssd\finalProject\MeetingManager\Application\obj\Debug\netstandard2.1\Application.pdb
