@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Icon, List } from 'semantic-ui-react';
 import axios from 'axios';
+import mmIcon from './images/mmIconBlackGry.png';
 
 class App extends Component {
   state = {
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <div>
         <Header as='h2'>
-          <Icon name='users' />
+          {/* <Icon name='users' /> */}
+          <img src={mmIcon} alt=""/>
           <Header.Content>MeetingManager</Header.Content>
         </Header>
         <List>
