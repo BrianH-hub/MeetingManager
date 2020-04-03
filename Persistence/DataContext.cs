@@ -1,7 +1,5 @@
-﻿using System;
-using Domain;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Persistence
 {
@@ -9,11 +7,11 @@ namespace Persistence
     {
         public DataContext(DbContextOptions options) : base(options)
         {
-            
         }
-
+        
         public DbSet<Value> Values { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Value>()
@@ -23,6 +21,5 @@ namespace Persistence
                     new Value {Id = 3, Name = "Value 103"}
                 );
         }
-        
     }
 }

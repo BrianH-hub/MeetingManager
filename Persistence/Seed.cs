@@ -11,7 +11,7 @@ namespace Persistence
         {
             if (!context.Meetings.Any())
             {
-                var meetings = new List<Meeting>
+                var Meetings = new List<Meeting>
                 {
                     new Meeting
                     {
@@ -105,7 +105,7 @@ namespace Persistence
                     }
                 };
 
-                context.Meetings.AddRange(meetings);
+                context.Meetings.AddRange(Meetings);
                 context.SaveChanges();
             }
         }
