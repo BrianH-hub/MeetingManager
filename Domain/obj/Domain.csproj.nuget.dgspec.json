@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {}
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ibrahimshahristani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -43,6 +38,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -60,7 +59,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

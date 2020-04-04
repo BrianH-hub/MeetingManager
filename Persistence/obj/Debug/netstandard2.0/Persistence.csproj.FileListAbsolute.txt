@@ -20,3 +20,14 @@ C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\D
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.dll
 C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
