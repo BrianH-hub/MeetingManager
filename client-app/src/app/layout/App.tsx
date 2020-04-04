@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
-import { Header, Icon, List } from 'semantic-ui-react';
-import axios from 'axios';
-import mmIcon from './images/mmIconBlackGry.png';
+import React, { useState, useEffect, Fragment, Component } from "react";
+import { Header, List, Container } from "semantic-ui-react";
+import axios from "axios";
+import NavBar from "../../features/nav/NavBar";
 
 class App extends Component {
-  state = {
-    values: []
-  };
+
+      state = {meetings: [
+          { id: 1, title: "test1" },
+          { id: 2, title: "test2" },
+        ],
+      };
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/values').then(response => {
+    axios.get("http://localhost:5000/api/meetings").then((response) => {
       this.setState({
-        values: response.data
+        meetings: response.data,
       });
+
     });
   }
 
   render() {
     return (
-      <div>
-        <Header as='h2'>
-          {/* <Icon name='users' /> */}
-          <img src={mmIcon} alt=""/>
-          <Header.Content>MeetingManager</Header.Content>
-        </Header>
-        <List>
-          {this.state.values.map((value: any) => (
-            <List.Item key={value.id}>{value.name}</List.Item>
-          ))}
-        </List>
-      </div>
+      <Fragment>
+        <NavBar />
+        <Container style={{ marginTop: "5em" }}>
+          <Header as="h2">
+            <Header.Content>MeetingManager</Header.Content>
+          </Header>
+
+        </Container>
+      </Fragment>
     );
   }
 }
