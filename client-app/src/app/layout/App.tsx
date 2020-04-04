@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment, Component } from "react";
 import { Header, List, Container } from "semantic-ui-react";
 import axios from "axios";
 import NavBar from "../../features/nav/NavBar";
-import { MeetingDashboard } from "../../features/nav/meetings/dashboard/MeetingDashboard";
+import { MeetingDashboard } from "../../features/dashboard/MeetingDashboard";
 
 class App extends Component {
   state = {
