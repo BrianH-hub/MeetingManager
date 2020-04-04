@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj": {}
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj": {
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Application\\obj\\",
+        "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ibrahimshahristani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -32,11 +27,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj"
+              "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj"
+              "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -71,27 +66,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ibrahimshahristani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -114,6 +104,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -131,27 +125,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Persistence\\obj\\",
+        "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ibrahimshahristani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -163,8 +152,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\MeetingManager\\Domain\\Domain.csproj"
+              "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj"
               }
             }
           }
@@ -203,7 +192,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
