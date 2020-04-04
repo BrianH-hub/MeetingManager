@@ -3,5 +3,8 @@ obj
 .DS_Store
 *.db
 
-API/obj/Debug/netcoreapp3.0/API.csprojAssemblyReference.cache
-Application/obj/Debug/netstandard2.1/Application.csprojAssemblyReference.cache
+API/
+Application/
+Domain/
+Persistence/
+
