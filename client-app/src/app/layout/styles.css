@@ -1,12 +1,26 @@
+
 body {
-  background-color: rgb(234, 234, 234) !important;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color:  rgb(195, 195, 195) !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .ui.inverted.top.fixed.menu {
   background-image: linear-gradient(
-    135deg,
-    rgb(29, 131, 179) 0%,
-    rgb(79, 165, 153) 69%,
-    rgb(59, 180, 75) 89%
+
+
+    142deg,
+    rgb(0,102,143)0%,
+    rgb(51,153,255)62%,
+    rgb(42,42,42)92%
   ) !important;
 }
