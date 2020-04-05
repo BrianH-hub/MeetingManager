@@ -1,36 +1,51 @@
-import React, { useState, FormEvent, useContext } from 'react';
+import React, { useState, FormEvent, useContext, useEffect } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
 import {v4 as uuid} from 'uuid';
 import MeetingStore from '../../../app/stores/meetingStore';
 import { observer } from 'mobx-react-lite';
+import { RouteComponentProps } from 'react-router';
 
-interface IProps {
-  meeting: IMeeting;
+
+interface DetailParams {
+  id: string;
 }
 
-const MeetingForm: React.FC<IProps> = ({
-  meeting: initialFormState,
+const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
+  match,
+  history
 }) => {
   const meetingStore = useContext(MeetingStore);
-  const { createMeeting, editMeeting, submitting, cancelFormOpen } = meetingStore;
-  const initializeForm = () => {
-    if (initialFormState) {
-      return initialFormState;
-    } else {
-      return {
-        id: '',
-        title: '',
-        category: '',
-        description: '',
-        date: '',
-        city: '',
-        venue: ''
-      };
-    }
-  };
+  const {
+    createMeeting,
+    editMeeting,
+    submitting,
+    meeting: initialFormState,
+    loadMeeting,
+    clearMeeting
+  } = meetingStore;
 
-  const [meeting, setMeeting] = useState<IMeeting>(initializeForm);
+  const [meeting, setMeeting] = useState<IMeeting>({
+    id: '',
+    title: '',
+    category: '',
+    description: '',
+    date: '',
+    city: '',
+    venue: ''
+  });
+
+  useEffect(() => {
+    if (match.params.id && meeting.id.length === 0) {
+      loadMeeting(match.params.id).then(
+        () => initialFormState && setMeeting(initialFormState)
+      );
+    }
+    return () => {
+      clearMeeting()
+    }
+  }, [loadMeeting, clearMeeting, match.params.id, initialFormState, meeting.id.length]);
+
 
   const handleSubmit = () => {
     if (meeting.id.length === 0) {
@@ -38,11 +53,12 @@ const MeetingForm: React.FC<IProps> = ({
         ...meeting,
         id: uuid()
       };
-      createMeeting(newMeeting);
+      createMeeting(newMeeting).then(() => history.push(`/meetings/${newMeeting.id}`))
     } else {
-      editMeeting(meeting);
+      editMeeting(meeting).then(() => history.push(`/meetings/${meeting.id}`));
     }
   };
+
 
   const handleInputChange = (
     event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -94,7 +110,7 @@ const MeetingForm: React.FC<IProps> = ({
         />
         <Button loading={submitting} floated='right' positive type='submit' content='Submit' />
         <Button
-          onClick={cancelFormOpen}
+          onClick={() => history.push('/meetings')}
           floated='right'
           type='button'
           content='Cancel'

@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
 import MeetingStore from '../../../app/stores/meetingStore';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 const MeetingList: React.FC = () => {
   const meetingStore = useContext(MeetingStore);
-  const {meetingsByDate, selectMeeting, deleteMeeting, submitting, target} = meetingStore;
+  const {meetingsByDate, deleteMeeting, submitting, target} = meetingStore;
   return (
     <Segment clearing>
       <Item.Group divided>
@@ -22,7 +23,7 @@ const MeetingList: React.FC = () => {
               </Item.Description>
               <Item.Extra>
                 <Button
-                  onClick={() => selectMeeting(meeting.id)}
+                  as={Link} to={`/meetings/${meeting.id}`}
                   floated='right'
                   content='View'
                   color='blue'
