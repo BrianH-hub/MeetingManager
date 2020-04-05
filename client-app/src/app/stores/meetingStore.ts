@@ -14,13 +14,13 @@ export default class MeetingStore {
  constructor(rootStore: RootStore) {
    this.rootStore = rootStore;
  }
-
-
+  @observable selectedMeeting: IMeeting | undefined;
+ @observable target = '';
   @observable meetingRegistry = new Map();
   @observable meeting: IMeeting | null = null;
   @observable loadingInitial = false;
   @observable submitting = false;
-  @observable target = '';
+ 
 
   @computed get meetingsByDate() {
     return this.groupMeetingsByDate(Array.from(this.meetingRegistry.values()))

@@ -3,7 +3,7 @@ import { IUser, IUserFormValues } from "../models/user";
 import agent from "../api/agent";
 import { RootStore } from "./rootStore";
 //not yet created
-import { history } from '../..';
+import { history } from "../..";
 
 
 export default class UserStore {
@@ -21,11 +21,10 @@ export default class UserStore {
       runInAction(() => {
         this.user = user;
       });
-      //commonStore being constructed
       this.rootStore.commonStore.setToken(user.token);
-      // this.rootStore.modalStore.closeModal();
+      this.rootStore.modalStore.closeModal();
       //named activities in database?
-      history.push('/activities');
+      history.push("/activities");
     } catch (error) {
       throw error;
     }
@@ -34,11 +33,11 @@ export default class UserStore {
   @action register = async (values: IUserFormValues) => {
     try {
       const user = await agent.User.register(values);
-      //commonStore being constructed
+
       this.rootStore.commonStore.setToken(user.token);
-      // this.rootStore.modalStore.closeModal();
+      this.rootStore.modalStore.closeModal();
       //named activities in database?
-      history.push('/activities')
+      history.push("/activities")
     } catch (error) {
       throw error;
     }
@@ -56,9 +55,9 @@ export default class UserStore {
   };
 
   @action logout = () => {
-    //commonStore being constructed
+
     this.rootStore.commonStore.setToken(null);
     this.user = null;
-    history.push('/');
+    history.push("/");
   };
 }
