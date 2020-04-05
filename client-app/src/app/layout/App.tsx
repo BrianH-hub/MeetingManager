@@ -27,18 +27,6 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   const { getUser } = rootStore.userStore;
   const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
 
-  const handleOpenCreateForm = () => {
-    setSelectedMeeting(null);
-    setEditMode(true);
-  };
-
-
-
-const App: React.FC<RouteComponentProps> = ({ location }) => {
-  const rootStore = useContext(RootStoreContext);
-  const { getUser } = rootStore.userStore;
-  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
-
   useEffect(() => {
     if (token) {
       getUser().finally(() => setAppLoaded());
@@ -78,4 +66,4 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   );
 };
 
-export default withRouter(observer(App));
+export default withRouter(observer(App))
