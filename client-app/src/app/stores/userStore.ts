@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 import { action, observable, computed, runInAction } from "mobx";
 import { IUser, IUserFormValues } from "../models/user";
 import { RootStore } from "./rootStore";
-//not yet created
 import { history } from "../..";
 import agent from "../api/agent";
 
@@ -48,35 +46,56 @@ export default class UserStore {
       runInAction(() => {
         this.user = user;
       });
-=======
-import { observable, computed, action } from "mobx";
-import { IUser, IUserFormValues } from "../models/user";
-import agent from "../api/agent";
+
 
 export default class UserStore {
-  @observable user: IUser | null = null;
-
+    rootStore: RootStore;
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore;
+  }
   @computed get isLoggedIn() {
     return !!this.user;
   }
-
+  @observable user: IUser | null = null;
   @action login = async (values: IUserFormValues) => {
     try {
-        const user = await agent.User.login(values);
+      const user = await agent.User.login(values);
+      runInAction(() => {
         this.user = user;
+      });
 
->>>>>>> login action
+    } catch (error) {
+      throw error;
+
+    }
+  };
+
+ @action register = async (values: IUserFormValues) => {
+    try {
+      const user = await agent.User.register(values);
+
+
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @action getUser = async () => {
+    try {
+      const user = await agent.User.current();
+      runInAction(() => {
+        this.user = user;
+      });
     } catch (error) {
       console.log(error);
     }
   };
-<<<<<<< HEAD
+
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
     this.user = null;
     history.push("/");
   };
-=======
->>>>>>> login action
+
 }
