@@ -7,7 +7,7 @@ import { combineValidators, isRequired } from 'revalidate';
 import { FORM_ERROR } from 'final-form';
 import ErrorMessage from '../../app/common/form/ErrorMessage';
 import TextInput from '../../app/common/form/TextInput';
-// import ErrorMessage from '../../app/common/form/ErrorMessage';
+
 
 
 const validate = combineValidators({
@@ -70,3 +70,4 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
