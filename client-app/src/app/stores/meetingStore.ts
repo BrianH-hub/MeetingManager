@@ -12,15 +12,15 @@ export default class MeetingStore {
  constructor(rootStore: RootStore) {
    this.rootStore = rootStore;
  }
-
-
+  @observable selectedMeeting: IMeeting | undefined;
+ @observable target = '';
   @observable meetingRegistry = new Map();
   @observable meetings: IMeeting[] = [];
-  @observable selectedMeeting: IMeeting | undefined;
+
   @observable loadingInitial = false;
   @observable editMode = false;
   @observable submitting = false;
-  @observable target = '';
+ 
 
   @computed get meetingsByDate() {
     return Array.from(this.meetingRegistry.values()).sort(
