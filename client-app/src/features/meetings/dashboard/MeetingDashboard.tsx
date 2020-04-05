@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
 import MeetingList from './MeetingList';
@@ -14,7 +14,9 @@ interface IProps {
   setSelectedMeeting: (meeting: IMeeting | null) => void;
   createMeeting: (meeting: IMeeting) => void;
   editMeeting: (meeting: IMeeting) => void;
-  deleteMeeting: (id: string) => void;
+  deleteMeeting: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+  submitting: boolean;
+  target: string;
 }
 
 const MeetingDashboard: React.FC<IProps> = ({
@@ -26,7 +28,9 @@ const MeetingDashboard: React.FC<IProps> = ({
   setSelectedMeeting,
   createMeeting,
   editMeeting,
-  deleteMeeting
+  deleteMeeting,
+  submitting,
+  target
 }) => {
   return (
     <Grid>
@@ -35,6 +39,8 @@ const MeetingDashboard: React.FC<IProps> = ({
           meetings={meetings}
           selectMeeting={selectMeeting}
           deleteMeeting={deleteMeeting}
+          submitting = {submitting}
+          target = {target}
         />
       </Grid.Column>
       <Grid.Column width={6}>
