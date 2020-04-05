@@ -1,26 +1,15 @@
-import React, { SyntheticEvent } from 'react';
+import React, { useContext } from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
-import { IMeeting } from '../../../app/models/meeting';
+import MeetingStore from '../../../app/stores/meetingStore';
+import { observer } from 'mobx-react-lite';
 
-interface IProps {
-  meetings: IMeeting[];
-  selectMeeting: (id: string) => void;
-  deleteMeeting: (event: SyntheticEvent<HTMLButtonElement>, id: string) => void;
-  submitting: boolean;
-  target: string;
-}
-
-const MeetingList: React.FC<IProps> = ({
-  meetings,
-  selectMeeting,
-  deleteMeeting,
-  submitting,
-  target
-}) => {
+const MeetingList: React.FC = () => {
+  const meetingStore = useContext(MeetingStore);
+  const {meetingsByDate, selectMeeting, deleteMeeting, submitting, target} = meetingStore;
   return (
     <Segment clearing>
       <Item.Group divided>
-        {meetings.map(meeting => (
+        {meetingsByDate.map(meeting => (
           <Item key={meeting.id}>
             <Item.Content>
               <Item.Header as='a'>{meeting.title}</Item.Header>
@@ -56,4 +45,4 @@ const MeetingList: React.FC<IProps> = ({
   );
 };
 
-export default MeetingList;
+export default observer(MeetingList);

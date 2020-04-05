@@ -1,21 +1,19 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useContext } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
 import {v4 as uuid} from 'uuid';
+import MeetingStore from '../../../app/stores/meetingStore';
+import { observer } from 'mobx-react-lite';
 
 interface IProps {
-  setEditMode: (editMode: boolean) => void;
   meeting: IMeeting;
-  createMeeting: (meeting: IMeeting) => void;
-  editMeeting: (meeting: IMeeting) => void;
 }
 
 const MeetingForm: React.FC<IProps> = ({
-  setEditMode,
   meeting: initialFormState,
-  editMeeting,
-  createMeeting
 }) => {
+  const meetingStore = useContext(MeetingStore);
+  const { createMeeting, editMeeting, submitting, cancelFormOpen } = meetingStore;
   const initializeForm = () => {
     if (initialFormState) {
       return initialFormState;
@@ -94,9 +92,9 @@ const MeetingForm: React.FC<IProps> = ({
           placeholder='Venue'
           value={meeting.venue}
         />
-        <Button floated='right' positive type='submit' content='Submit' />
+        <Button loading={submitting} floated='right' positive type='submit' content='Submit' />
         <Button
-          onClick={() => setEditMode(false)}
+          onClick={cancelFormOpen}
           floated='right'
           type='button'
           content='Cancel'
@@ -106,4 +104,4 @@ const MeetingForm: React.FC<IProps> = ({
   );
 };
 
-export default MeetingForm;
+export default observer(MeetingForm);

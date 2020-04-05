@@ -31,7 +31,6 @@ class MeetingStore {
         });
         this.loadingInitial = false;
       })
-
     } catch (error) {
       runInAction('load meetings error', () => {
         this.loadingInitial = false;
