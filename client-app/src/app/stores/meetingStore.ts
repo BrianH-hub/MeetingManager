@@ -4,10 +4,18 @@ import { IMeeting } from '../models/meeting';
 import agent from '../api/agent';
 import { history } from '../..';
 import { toast } from 'react-toastify';
+import { RootStore } from './rootStore';
+import UserStore from './userStore';
 
 configure({enforceActions: 'always'});
 
-class MeetingStore {
+export default class MeetingStore {
+  rootStore: RootStore;
+ constructor(rootStore: RootStore) {
+   this.rootStore = rootStore;
+ }
+
+
   @observable meetingRegistry = new Map();
   @observable meeting: IMeeting | null = null;
   @observable loadingInitial = false;
@@ -138,4 +146,4 @@ class MeetingStore {
 
 }
 
-export default createContext(new MeetingStore());
+// export default createContext(new MeetingStore());
