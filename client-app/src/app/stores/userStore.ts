@@ -3,7 +3,6 @@ import { IUser, IUserFormValues } from "../models/user";
 import { RootStore } from "./rootStore";
 import { history } from "../..";
 import agent from "../api/agent";
-import { RootStore } from "./rootStore";
 
 export default class UserStore {
   rootStore: RootStore;
@@ -49,30 +48,9 @@ export default class UserStore {
       });
     } catch (error) {
       throw error;
-
     }
   };
 
- @action register = async (values: IUserFormValues) => {
-    try {
-      const user = await agent.User.register(values);
-
-
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  @action getUser = async () => {
-    try {
-      const user = await agent.User.current();
-      runInAction(() => {
-        this.user = user;
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
