@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { IMeeting } from '../models/meeting';
 import { resolve } from 'dns';
+import { IUser, IUserFormValues } from '../models/user';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -22,6 +23,12 @@ const Meetings = {
     create: (meeting: IMeeting) => requests.post('/meetings', meeting),
     update: (meeting: IMeeting) => requests.put(`/meetings/${meeting.id}`, meeting),
     delete: (id: string) => requests.del(`/meetings/${id}`)
+}
+
+const Users = {
+    current: (): Promise<IUser> => requests.get('/user'),
+    login: (user: IUserFormValues): Promise<IUser> => requests.post('/user/login', user),
+    register: (user: IUserFormValues): Promise<IUser> => requests.post('/user/register', user),
 }
 
 export default {
