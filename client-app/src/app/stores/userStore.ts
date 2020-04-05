@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { action, observable, computed, runInAction } from "mobx";
 import { IUser, IUserFormValues } from "../models/user";
 import { RootStore } from "./rootStore";
@@ -47,14 +48,35 @@ export default class UserStore {
       runInAction(() => {
         this.user = user;
       });
+=======
+import { observable, computed, action } from "mobx";
+import { IUser, IUserFormValues } from "../models/user";
+import agent from "../api/agent";
+
+export default class UserStore {
+  @observable user: IUser | null = null;
+
+  @computed get isLoggedIn() {
+    return !!this.user;
+  }
+
+  @action login = async (values: IUserFormValues) => {
+    try {
+        const user = await agent.User.login(values);
+        this.user = user;
+
+>>>>>>> login action
     } catch (error) {
       console.log(error);
     }
   };
+<<<<<<< HEAD
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
     this.user = null;
     history.push("/");
   };
+=======
+>>>>>>> login action
 }
