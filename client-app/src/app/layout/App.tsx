@@ -4,7 +4,7 @@ import { IMeeting } from "../models/meeting";
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
 import agent from "../api/agent";
-//import LoadingComponent from './LoadingComponent';
+import LoadingComponent from './LoadingComponent'
 
 const App = () => {
   const [meetings, setMeetings] = useState<IMeeting[]>([]);
@@ -60,7 +60,7 @@ const App = () => {
       setMeetings(meetings);
     }).then(() => setLoading(false));
   }, []);
-  //if (loading) return <LoadingComponent content='Loading activities' />
+  if (loading) return <LoadingComponent content='Loading meetings' />
   return (
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
