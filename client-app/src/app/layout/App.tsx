@@ -1,9 +1,15 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Container } from "semantic-ui-react";
 
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-
+import agent from "../api/agent";
+import MeetingDetails from '../../features/meetings/details/MeetingDetails';
+import MeetingForm from '../../features/meetings/form/MeetingForm';
+import NotFound from './NotFound';
+import ModalContainer from '../common/modals/ModalContainer';
+import LoginForm from '../../features/user/LoginForm';
+import { RootStoreContext } from '../stores/rootStore';
 import LoadingComponent from "./LoadingComponent";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../../features/home/HomePage";
@@ -13,13 +19,22 @@ import {
   RouteComponentProps,
   Switch,
 } from "react-router-dom";
-import MeetingDetails from "../../features/meetings/details/MeetingDetails";
-import MeetingForm from "../../features/meetings/form/MeetingForm";
-import NotFound from "./NotFound";
-import ModalContainer from "../common/modals/ModalContainer";
-import LoginForm from "../../features/user/LoginForm";
-import { RootStoreContext } from "../stores/rootStore";
 import { observer } from "mobx-react-lite";
+
+
+const App = () => {
+  const [meetings, setMeetings] = useState<IMeeting[]>([]);
+  const [selectedMeeting, setSelectedMeeting] = useState<IMeeting | null>(null);
+  const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [target, setTarget] = useState('');
+
+  const handleOpenCreateForm = () => {
+    setSelectedMeeting(null);
+    setEditMode(true);
+  };
+
 
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
