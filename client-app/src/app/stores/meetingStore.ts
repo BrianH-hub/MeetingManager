@@ -2,10 +2,18 @@ import { observable, action, computed, configure, runInAction } from 'mobx';
 import { createContext, SyntheticEvent } from 'react';
 import { IMeeting } from '../models/meeting';
 import agent from '../api/agent';
+import { RootStore } from './rootStore';
+import UserStore from './userStore';
 
 configure({enforceActions: 'always'});
 
-class MeetingStore {
+export default class MeetingStore {
+  rootStore: RootStore;
+ constructor(rootStore: RootStore) {
+   this.rootStore = rootStore;
+ }
+
+
   @observable meetingRegistry = new Map();
   @observable meetings: IMeeting[] = [];
   @observable selectedMeeting: IMeeting | undefined;
@@ -118,4 +126,4 @@ class MeetingStore {
   };
 }
 
-export default createContext(new MeetingStore());
+// export default createContext(new MeetingStore());
