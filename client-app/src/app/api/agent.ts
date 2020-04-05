@@ -1,8 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
+<<<<<<< HEAD
 import { IActivity } from '../models/activity';
 import { history } from '../..';
 import { IUser, IUserFormValues } from '../models/user';
 import { toast } from 'react-toastify';
+=======
+import { IMeeting } from '../models/meeting';
+import { resolve } from 'dns';
+import { IUser, IUserFormValues } from '../models/user';
+>>>>>>> added const Users
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -39,7 +45,7 @@ const Meetings = {
     delete: (id: string) => requests.del(`/meetings/${id}`)
 }
 
-const User = {
+const Users = {
     current: (): Promise<IUser> => requests.get('/user'),
     login: (user: IUserFormValues): Promise<IUser> => requests.post('/user/login', user),
     register: (user: IUserFormValues): Promise<IUser> => requests.post('/user/register', user),
