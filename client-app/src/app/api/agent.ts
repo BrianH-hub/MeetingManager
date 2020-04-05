@@ -52,7 +52,7 @@ const Meetings = {
     delete: (id: string) => requests.del(`/meetings/${id}`)
 }
 
-const User = {
+const Users = {
     current: (): Promise<IUser> => requests.get('/user'),
     login: (user: IUserFormValues): Promise<IUser> => requests.post('/user/login', user),
     register: (user: IUserFormValues): Promise<IUser> => requests.post('/user/register', user),
