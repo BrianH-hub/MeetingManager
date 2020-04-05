@@ -1,14 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-<<<<<<< HEAD
-import { IActivity } from '../models/activity';
-import { history } from '../..';
-import { IUser, IUserFormValues } from '../models/user';
-import { toast } from 'react-toastify';
-=======
 import { IMeeting } from '../models/meeting';
 import { resolve } from 'dns';
 import { IUser, IUserFormValues } from '../models/user';
->>>>>>> added const Users
+import { history } from '../..';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -19,11 +14,6 @@ axios.interceptors.request.use((config) => {
 }, error => {
     return Promise.reject(error);
 })
-
-axios.interceptors.response.use(undefined, error => {
-    if (error.message === 'Network Error' && !error.response) {
-        toast.error('Network error - make sure API is running!')
-    }
 
 const responseBody = (Response: AxiosResponse) => Response.data;
 
