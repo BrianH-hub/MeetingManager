@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
@@ -31,10 +32,10 @@ namespace Application.User
         {
             private readonly UserManager<AppUser> _userManager;
             private readonly SignInManager<AppUser> _signInManager;
-           // private readonly IJwtGenerator _jwtGenerator;
-            public Handler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+            private readonly IJwtGenerator _jwtGenerator;
+            public Handler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtGenerator jwtGenerator)
             {
-               // _jwtGenerator = jwtGenerator;
+                _jwtGenerator = jwtGenerator;
                 _signInManager = signInManager;
                 _userManager = userManager;
             }
@@ -56,7 +57,7 @@ namespace Application.User
                     return new User
                     {
                         DisplayName = user.DisplayName,
-                        Token = "this is a token",
+                        Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
                         Image = null
                     };
