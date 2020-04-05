@@ -1,9 +1,9 @@
-import { observable, action, computed, configure, runInAction } from "mobx";
-import { createContext, SyntheticEvent } from "react";
-import { IMeeting } from "../models/meeting";
-import agent from "../api/agent";
-import { RootStore } from "./rootStore";
-import UserStore from "./userStore";
+import { observable, action, computed, configure, runInAction } from 'mobx';
+import { createContext, SyntheticEvent } from 'react';
+import { IMeeting } from '../models/meeting';
+import agent from '../api/agent';
+import { RootStore } from './rootStore';
+import UserStore from './userStore';
 
 configure({ enforceActions: "always" });
 
