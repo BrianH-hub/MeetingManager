@@ -12,11 +12,13 @@ import TextInput from '../../app/common/form/TextInput';
 
 
 const validate = combineValidators({
+    username: isRequired('Username'),
+  displayName: isRequired('DisplayName'),
   email: isRequired('InputEmail'),
   pass: isRequired('Password')
 });
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const rootStore = useContext(RootStoreContext);
   const { login } = rootStore.userStore;
   return (
@@ -70,5 +72,5 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
 
