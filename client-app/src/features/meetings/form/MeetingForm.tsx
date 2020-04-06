@@ -82,6 +82,22 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
     }
   };
 
+<<<<<<< HEAD
+=======
+  // const handleInputChange = (
+  //   event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   const { name, value } = event.currentTarget;
+  //   setMeeting({ ...meeting, [name]: value });
+  // };
+  //outdated
+
+  cont handleFinalFormSubmit = (values: any) => {
+    const { date, time, ...activity } = values;
+    const dateAndTime = combineDateAndTime(values.date, values.time);
+  }
+
+>>>>>>> updating handleFinalForm
   return (
     <Grid>
       <Grid.Column width={10}>
