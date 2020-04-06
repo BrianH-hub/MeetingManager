@@ -1,29 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Grid } from 'semantic-ui-react';
 import MeetingList from './MeetingList';
-import MeetingDetails from '../details/MeetingDetails';
-import MeetingForm from '../form/MeetingForm';
 import { observer } from 'mobx-react-lite';
 import MeetingStore from '../../../app/stores/meetingStore';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
 
 const MeetingDashboard: React.FC = () => {
   const meetingStore = useContext(MeetingStore);
-  const {editMode, selectedMeeting} = meetingStore;
+  useEffect(() => {
+    meetingStore.loadMeetings();
+  }, [meetingStore]);
+
+  if (meetingStore.loadingInitial)
+    return <LoadingComponent content='Loading meetings' />;
   return (
     <Grid>
       <Grid.Column width={10}>
         <MeetingList />
       </Grid.Column>
       <Grid.Column width={6}>
-        {selectedMeeting && !editMode && (
-          <MeetingDetails />
-        )}
-        {editMode && (
-          <MeetingForm
-            key={(selectedMeeting && selectedMeeting.id) || 0}
-            meeting={selectedMeeting!}
-          />
-        )}
+      <h2>Meeting filters</h2>
       </Grid.Column>
     </Grid>
   );

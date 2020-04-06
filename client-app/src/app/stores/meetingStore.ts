@@ -7,10 +7,8 @@ configure({enforceActions: 'always'});
 
 class MeetingStore {
   @observable meetingRegistry = new Map();
-  @observable meetings: IMeeting[] = [];
-  @observable selectedMeeting: IMeeting | undefined;
+  @observable meeting: IMeeting | null = null;
   @observable loadingInitial = false;
-  @observable editMode = false;
   @observable submitting = false;
   @observable target = '';
 
@@ -38,13 +36,41 @@ class MeetingStore {
     }
   };
 
+  @action loadMeeting = async (id: string) => {
+    let meeting = this.getMeeting(id);
+    if (meeting) {
+      this.meeting = meeting;
+    } else {
+      this.loadingInitial = true;
+      try {
+        meeting = await agent.Meetings.details(id);
+        runInAction('getting meeting',()=>{
+          this.meeting = meeting;
+          this.loadingInitial = false;
+        })
+      } catch (error) {
+          runInAction('get meeting error', () => {
+            this.loadingInitial = false;
+        })
+        console.log(error);
+      }
+    }
+  }
+
+  @action clearMeeting = () => {
+    this.meeting = null;
+  }
+
+  getMeeting = (id: string) => {
+    return this.meetingRegistry.get(id);
+  }
+
   @action createMeeting = async (meeting: IMeeting) => {
     this.submitting = true;
     try {
       await agent.Meetings.create(meeting);
       runInAction('create meeting', () => {
         this.meetingRegistry.set(meeting.id, meeting);
-        this.editMode = false;
         this.submitting = false;
       })
     } catch (error) {
@@ -61,11 +87,9 @@ class MeetingStore {
       await agent.Meetings.update(meeting);
       runInAction('editing meeting', () => {
         this.meetingRegistry.set(meeting.id, meeting);
-        this.selectedMeeting = meeting;
-        this.editMode = false;
+        this.meeting = meeting;
         this.submitting = false;
       })
-
     } catch (error) {
       runInAction('edit meeting error', () => {
         this.submitting = false;
@@ -93,28 +117,6 @@ class MeetingStore {
     }
   }
 
-  @action openCreateForm = () => {
-    this.editMode = true;
-    this.selectedMeeting = undefined;
-  };
-
-  @action openEditForm = (id: string) => {
-    this.selectedMeeting = this.meetingRegistry.get(id);
-    this.editMode = true;
-  }
-
-  @action cancelSelectedMeeting = () => {
-    this.selectedMeeting = undefined;
-  }
-
-  @action cancelFormOpen = () => {
-    this.editMode = false;
-  }
-
-  @action selectMeeting = (id: string) => {
-    this.selectedMeeting = this.meetingRegistry.get(id);
-    this.editMode = false;
-  };
 }
 
 export default createContext(new MeetingStore());

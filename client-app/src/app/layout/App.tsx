@@ -2,27 +2,36 @@ import React, { useEffect, Fragment, useContext } from "react";
 import { Container } from "semantic-ui-react";
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-import LoadingComponent from './LoadingComponent'
-import MeetingStore from "../stores/meetingStore";
 import {observer} from 'mobx-react-lite';
+import { Route, withRouter, RouteComponentProps } from "react-router-dom";
+import HomePage from "../../features/home/HomePage";
+import MeetingForm from "../../features/meetings/form/MeetingForm";
+import MeetingDetails from "../../features/meetings/details/MeetingDetails";
 
-const App = () => {
+const App: React.FC<RouteComponentProps> = ({ location }) => {
 
-  const meetingStore = useContext(MeetingStore)
-
-  useEffect(() => {
-    meetingStore.loadMeetings();
-  }, [meetingStore]);
-
-  if (meetingStore.loadingInitial) return <LoadingComponent content='Loading meetings' />
   return (
     <Fragment>
-      <NavBar />
-      <Container style={{ marginTop: "7em" }}>
-        <MeetingDashboard />
-      </Container>
+      <Route exact path='/' component={HomePage} />
+      <Route
+        path={'/(.+)'}
+        render={() => (
+          <Fragment>
+            <NavBar />
+            <Container style={{ marginTop: '7em' }}>
+              <Route exact path='/meetings' component={MeetingDashboard} />
+              <Route path='/meetings/:id' component={MeetingDetails} />
+              <Route
+                key={location.key}
+                path={['/createMeeting', '/manage/:id']}
+                component={MeetingForm}
+              />
+            </Container>
+          </Fragment>
+        )}
+      />
     </Fragment>
   );
 };
 
-export default observer(App);
+export default withRouter(observer(App));
