@@ -101,7 +101,11 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
         ...meeting,
         id: uuid()
       };
-  }
+            createMeeting(newMeeting);
+    } else {
+      editMeeting(meeting);
+    }
+  };
 
 >>>>>>> updating handleFinalForm
   return (
