@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { SyntheticEvent, useEffect, useContext } from 'react';
 import { Grid } from 'semantic-ui-react';
 import MeetingList from './MeetingList';
 import { observer } from 'mobx-react-lite';
