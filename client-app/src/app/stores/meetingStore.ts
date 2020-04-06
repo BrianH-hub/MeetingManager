@@ -13,9 +13,18 @@ class MeetingStore {
   @observable target = '';
 
   @computed get meetingsByDate() {
-    return Array.from(this.meetingRegistry.values()).sort(
+    return this.groupMeetingsByDate(Array.from(this.meetingRegistry.values()))
+  }
+
+  groupMeetingsByDate(meetings: IMeeting[]) {
+    const sortedMeetings = meetings.sort(
       (a, b) => Date.parse(a.date) - Date.parse(b.date)
-    );
+    )
+    return Object.entries(sortedMeetings.reduce((meetings, meeting) => {
+      const date = meeting.date.split('T')[0];
+      meetings[date] = meetings[date] ? [...meetings[date], meeting] : [meeting];
+      return meetings;
+    }, {} as {[key: string]: IMeeting[]}));
   }
 
   @action loadMeetings = async () => {
