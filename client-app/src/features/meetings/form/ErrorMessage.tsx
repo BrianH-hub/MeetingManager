@@ -1,7 +1,10 @@
 import React from 'react'
+import { AxiosResponse } from 'axios'
 
 
 interface IProps{
+    error: AxiosResponse,
+    text: string
 
 }
 
