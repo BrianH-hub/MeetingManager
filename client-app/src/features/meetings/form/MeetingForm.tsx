@@ -80,7 +80,11 @@ const MeetingForm: React.FC<IProps> = ({
         ...meeting,
         id: uuid()
       };
-  }
+            createMeeting(newMeeting);
+    } else {
+      editMeeting(meeting);
+    }
+  };
 
   return (
     <Grid>
