@@ -93,8 +93,14 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
   //outdated
 
   cont handleFinalFormSubmit = (values: any) => {
-    const { date, time, ...activity } = values;
+    const { date, time, ...meeting } = values;
     const dateAndTime = combineDateAndTime(values.date, values.time);
+    meeting.date = dateAndTime;
+    if (!meeting.id) {
+      let newActivity = {
+        ...meeting,
+        id: uuid()
+      };
   }
 
 >>>>>>> updating handleFinalForm
