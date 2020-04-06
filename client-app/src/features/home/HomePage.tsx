@@ -27,7 +27,7 @@ Meeting Manager
           </Fragment>
         ) : (
           <Fragment>
-          <Header as="h2" inverted content={"Meeting Manager"} />
+          <Header as='h2' inverted content={`Welcome ${user.displayName} to Meeting Manager`} />
           <Button >
             Login
           </Button>
