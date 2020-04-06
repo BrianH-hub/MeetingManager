@@ -8,22 +8,26 @@ const HomePage = () => {
  return (
     <Segment inverted textAlign='center' vertical className='masthead'>
       <Container text>
-        <Header as='h1' inverted>
+        <Header as="h1" inverted>
           <Image
-            
+            size="massive"
+            src="/assets/logo.png"
+            alt="logo"
+            style={{marginBottom: 15}}
           />
-
+Meeting Manager
         </Header>
         {isLoggedIn && user ? (
           <Fragment>
-            <Header />
-            <Button >
+            <Header as='h2' inverted content={`User ${user.displayName} Returning`} />
+            <Button as={Link} to='/activities' size='huge' inverted>
+              Go to Meetings! 
               
             </Button>
           </Fragment>
         ) : (
           <Fragment>
-          <Header as='h2' inverted content={`Meeting Manager`} />
+          <Header as="h2" inverted content={"Meeting Manager"} />
           <Button >
             Login
           </Button>
