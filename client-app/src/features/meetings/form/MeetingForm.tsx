@@ -16,11 +16,9 @@ import {
   combineValidators,
   isRequired,
   composeValidators,
-  hasLengthGreaterThan
-} from 'revalidate';
-import { RootStoreContext } from '../../../app/stores/rootStore';
-
-
+  hasLengthGreaterThan,
+} from "revalidate";
+import { RootStoreContext } from "../../../app/stores/rootStore";
 
 const validate = combineValidators({
   title: isRequired({ message: 'The event title is required' }),
@@ -76,7 +74,7 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
     if (!meeting.id) {
       let newMeeting = {
         ...meeting,
-        id: uuid()
+        id: uuid(),
       };
       createMeeting(newMeeting);
     } else {

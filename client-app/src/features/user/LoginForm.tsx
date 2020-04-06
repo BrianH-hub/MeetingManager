@@ -27,13 +27,14 @@ const LoginForm = () => {
         }))
       }
       validate={validate}
+      //reverted back for group synchronization
       render={({
         handleSubmit,
-        postSubmit,
-        logError,
-        invalidError,
-        cleanSubmit,
-        dirtySubmit
+        submitting,
+        submitError,
+        invalid,
+        pristine,
+        dirtySinceLastSubmit
       }) => (
           
         <Form onSubmit={handleSubmit} error>
@@ -50,15 +51,15 @@ const LoginForm = () => {
             placeholder='Password'
             type='password'
           />
-          {logError && !dirtySubmit && (
+          {submitError && !dirtySinceLastSubmit && (
             <ErrorMessage
-              error={logError}
+              error={submitError}
               text='Invalid email or password'
             />
           )}
           <Button
-            disabled={(invalidError && !dirtySubmit) || cleanSubmit}
-            loading={postSubmit}
+            disabled={(invalid && !dirtySinceLastSubmit) || pristine}
+            loading={submitting}
             color='teal'
             content='Login'
             fluid
