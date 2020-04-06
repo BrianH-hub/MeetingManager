@@ -1,4 +1,4 @@
-import { observable, computed, action, runInAction } from "mobx";
+import { action, observable, computed, runInAction } from "mobx";
 import { IUser, IUserFormValues } from "../models/user";
 import { RootStore } from "./rootStore";
 import { history } from "../..";
@@ -50,7 +50,6 @@ export default class UserStore {
       throw error;
     }
   };
-
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
