@@ -1,14 +1,17 @@
 import React, { useContext, Fragment } from "react";
 import { Container, Segment, Header, Button, Image } from "semantic-ui-react";
-import { RootStoreContext } from '../../app/stores/rootStore';
-import RegisterForm from '../user/RegisterForm';
-import LoginForm from '../user/LoginForm';
-import { Link } from 'react-router-dom';
+import { RootStoreContext } from "../../app/stores/rootStore";
+
+import LoginForm from "../user/LoginForm";
+//WIP progress still
+import { Link } from "react-router-dom";
+import RegisterForm from "../user/RegisterForm";
 
 const HomePage = () => {
+  const rootStore = useContext(RootStoreContext);
   const { user, isLoggedIn } = rootStore.userStore;
   const { openModal } = rootStore.modalStore;
-  const rootStore = useContext(RootStoreContext);
+
   return (
     <Segment inverted textAlign="center" vertical className="masthead">
       <Container text>
@@ -37,7 +40,7 @@ const HomePage = () => {
             <Header
               as="h2"
               inverted
-              content={`Welcome ${user.displayName} to Meeting Manager`}
+              content={`Welcome to Meeting Manager`}
             />
             <Button
               onClick={() => openModal(<LoginForm />)}
