@@ -24,49 +24,17 @@ import { RootStoreContext } from '../../../app/stores/rootStore';
 //no longer required code?
 
 const MeetingDashboard: React.FC = () =>{
+  const rootStore = useContext(RootStoreContext);
+  const {loadActivities, loadingInitial} = rootStore.activityStore;
 
-  
-} = ({
-  meetings,
-  selectMeeting,
-  selectedMeeting,
-  editMode,
-  setEditMode,
-  setSelectedMeeting,
-  createMeeting,
-  editMeeting,
-  deleteMeeting,
-  submitting,
-  target
-}) => {
+
   return (
     <Grid>
-      <Grid.Column width={10}>
-        <MeetingList
-          meetings={meetings}
-          selectMeeting={selectMeeting}
-          deleteMeeting={deleteMeeting}
-          submitting = {submitting}
-          target = {target}
-        />
+      <Grid.Column width={11}>
+        <MeetingList />
       </Grid.Column>
-      <Grid.Column width={6}>
-        {selectedMeeting && !editMode && (
-          <MeetingDetails
-            meeting={selectedMeeting}
-            setEditMode={setEditMode}
-            setSelectedMeeting={setSelectedMeeting}
-          />
-        )}
-        {editMode && (
-          <MeetingForm
-            key={(selectedMeeting && selectedMeeting.id) || 0}
-            setEditMode={setEditMode}
-            meeting={selectedMeeting!}
-            createMeeting={createMeeting}
-            editMeeting={editMeeting}
-          />
-        )}
+      <Grid.Column width={8}>
+        <h2>Meeting filters</h2>
       </Grid.Column>
     </Grid>
   );
