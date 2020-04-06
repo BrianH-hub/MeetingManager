@@ -1,11 +1,9 @@
 import React, { useContext, Fragment } from "react";
 import { Container, Segment, Header, Button, Image } from "semantic-ui-react";
-import { RootStoreContext } from "../../app/stores/rootStore";
-
-import LoginForm from "../user/LoginForm";
-//WIP progress still
-import { Link } from "react-router-dom";
-import RegisterForm from "../user/RegisterForm";
+import { RootStoreContext } from '../../app/stores/rootStore';
+import RegisterForm from '../user/RegisterForm';
+import LoginForm from '../user/LoginForm';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const rootStore = useContext(RootStoreContext);
