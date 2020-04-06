@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, useContext, useEffect } from 'react';
-import { Segment, Form, Button } from 'semantic-ui-react';
+import { Segment, Form, Button, Grid } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
 import {v4 as uuid} from 'uuid';
 import MeetingStore from '../../../app/stores/meetingStore';
@@ -68,6 +68,8 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
   };
 
   return (
+    <Grid>
+    <Grid.Column width={10}>
     <Segment clearing>
       <Form onSubmit={handleSubmit}>
         <Form.Input
@@ -117,6 +119,8 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
         />
       </Form>
     </Segment>
+    </Grid.Column>
+    </Grid>
   );
 };
 
