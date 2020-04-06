@@ -40,7 +40,7 @@ const LoginForm = () => {
         <Form onSubmit={handleSubmit} error>
           <Header
             as='h2'
-            content='Login to Reactivities'
+            content='Login to Meeting Manager'
             color='teal'
             textAlign='center'
           />
