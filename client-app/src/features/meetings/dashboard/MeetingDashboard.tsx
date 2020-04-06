@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useEffect, useContext } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
 import MeetingList from './MeetingList';
@@ -25,8 +25,13 @@ import { RootStoreContext } from '../../../app/stores/rootStore';
 
 const MeetingDashboard: React.FC = () =>{
   const rootStore = useContext(RootStoreContext);
-  const {loadActivities, loadingInitial} = rootStore.activityStore;
+  const {loadMeetings, loadingInitial} = rootStore.meetingStore;
+  useEffect(() => {
+    loadMeetings();
+  }, [loadMeetings]);
 
+  if (loadingInitial)
+    return <LoadingComponent content='Loading meetings' />;
 
   return (
     <Grid>
@@ -40,4 +45,4 @@ const MeetingDashboard: React.FC = () =>{
   );
 };
 
-export default MeetingDashboard;
+export default observer(MeetingDashboard);
