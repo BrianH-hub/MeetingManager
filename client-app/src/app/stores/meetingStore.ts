@@ -1,26 +1,25 @@
-import { observable, action, computed, configure, runInAction } from 'mobx';
-import { createContext, SyntheticEvent } from 'react';
-import { IMeeting } from '../models/meeting';
-import agent from '../api/agent';
-import { RootStore } from './rootStore';
-import UserStore from './userStore';
+import { observable, action, computed, configure, runInAction } from "mobx";
+import { createContext, SyntheticEvent } from "react";
+import { IMeeting } from "../models/meeting";
+import agent from "../api/agent";
+import { RootStore } from "./rootStore";
+import UserStore from "./userStore";
 
-configure({enforceActions: 'always'});
+configure({ enforceActions: "always" });
 
 export default class MeetingStore {
   rootStore: RootStore;
- constructor(rootStore: RootStore) {
-   this.rootStore = rootStore;
- }
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore;
+  }
   @observable selectedMeeting: IMeeting | undefined;
- @observable target = '';
+  @observable target = "";
   @observable meetingRegistry = new Map();
   @observable meetings: IMeeting[] = [];
 
   @observable loadingInitial = false;
   @observable editMode = false;
   @observable submitting = false;
- 
 
   @computed get meetingsByDate() {
     return Array.from(this.meetingRegistry.values()).sort(
@@ -32,18 +31,17 @@ export default class MeetingStore {
     this.loadingInitial = true;
     try {
       const meetings = await agent.Meetings.list();
-      runInAction('loading meetings', () => {
-        meetings.forEach(meeting => {
-          meeting.date = meeting.date.split('.')[0];
+      runInAction("loading meetings", () => {
+        meetings.forEach((meeting) => {
+          meeting.date = meeting.date.split(".")[0];
           this.meetingRegistry.set(meeting.id, meeting);
         });
         this.loadingInitial = false;
-      })
-
+      });
     } catch (error) {
-      runInAction('load meetings error', () => {
+      runInAction("load meetings error", () => {
         this.loadingInitial = false;
-      })
+      });
     }
   };
 
@@ -51,15 +49,15 @@ export default class MeetingStore {
     this.submitting = true;
     try {
       await agent.Meetings.create(meeting);
-      runInAction('create meeting', () => {
+      runInAction("create meeting", () => {
         this.meetingRegistry.set(meeting.id, meeting);
         this.editMode = false;
         this.submitting = false;
-      })
+      });
     } catch (error) {
-      runInAction('create meeting error', () => {
+      runInAction("create meeting error", () => {
         this.submitting = false;
-      })
+      });
       console.log(error);
     }
   };
@@ -68,39 +66,41 @@ export default class MeetingStore {
     this.submitting = true;
     try {
       await agent.Meetings.update(meeting);
-      runInAction('editing meeting', () => {
+      runInAction("editing meeting", () => {
         this.meetingRegistry.set(meeting.id, meeting);
         this.selectedMeeting = meeting;
         this.editMode = false;
         this.submitting = false;
-      })
-
+      });
     } catch (error) {
-      runInAction('edit meeting error', () => {
+      runInAction("edit meeting error", () => {
         this.submitting = false;
-      })
+      });
       console.log(error);
     }
   };
 
-  @action deleteMeeting = async (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
+  @action deleteMeeting = async (
+    event: SyntheticEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     this.submitting = true;
     this.target = event.currentTarget.name;
     try {
       await agent.Meetings.delete(id);
-      runInAction('deleting meeting', () => {
+      runInAction("deleting meeting", () => {
         this.meetingRegistry.delete(id);
         this.submitting = false;
-        this.target = '';
-      })
+        this.target = "";
+      });
     } catch (error) {
-      runInAction('delete meeting error', () => {
+      runInAction("delete meeting error", () => {
         this.submitting = false;
-        this.target = '';
-      })
+        this.target = "";
+      });
       console.log(error);
     }
-  }
+  };
 
   @action openCreateForm = () => {
     this.editMode = true;
@@ -110,15 +110,15 @@ export default class MeetingStore {
   @action openEditForm = (id: string) => {
     this.selectedMeeting = this.meetingRegistry.get(id);
     this.editMode = true;
-  }
+  };
 
   @action cancelSelectedMeeting = () => {
     this.selectedMeeting = undefined;
-  }
+  };
 
   @action cancelFormOpen = () => {
     this.editMode = false;
-  }
+  };
 
   @action selectMeeting = (id: string) => {
     this.selectedMeeting = this.meetingRegistry.get(id);

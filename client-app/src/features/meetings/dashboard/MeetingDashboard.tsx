@@ -4,22 +4,29 @@ import { IMeeting } from '../../../app/models/meeting';
 import MeetingList from './MeetingList';
 import MeetingDetails from '../details/MeetingDetails';
 import MeetingForm from '../form/MeetingForm';
+import { observer } from 'mobx-react-lite';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
+import { RootStoreContext } from '../../../app/stores/rootStore';
 
-interface IProps {
-  meetings: IMeeting[];
-  selectMeeting: (id: string) => void;
-  selectedMeeting: IMeeting | null;
-  editMode: boolean;
-  setEditMode: (editMode: boolean) => void;
-  setSelectedMeeting: (meeting: IMeeting | null) => void;
-  createMeeting: (meeting: IMeeting) => void;
-  editMeeting: (meeting: IMeeting) => void;
-  deleteMeeting: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
-  submitting: boolean;
-  target: string;
-}
+// interface IProps {
+//   meetings: IMeeting[];
+//   selectMeeting: (id: string) => void;
+//   selectedMeeting: IMeeting | null;
+//   editMode: boolean;
+//   setEditMode: (editMode: boolean) => void;
+//   setSelectedMeeting: (meeting: IMeeting | null) => void;
+//   createMeeting: (meeting: IMeeting) => void;
+//   editMeeting: (meeting: IMeeting) => void;
+//   deleteMeeting: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+//   submitting: boolean;
+//   target: string;
+// }
+//no longer required code?
 
-const MeetingDashboard: React.FC<IProps> = ({
+const MeetingDashboard: React.FC = () =>{
+
+  
+} = ({
   meetings,
   selectMeeting,
   selectedMeeting,
