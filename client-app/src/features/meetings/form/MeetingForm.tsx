@@ -63,12 +63,18 @@ const MeetingForm: React.FC<IProps> = ({
     }
   };
 
-  const handleInputChange = (
-    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.currentTarget;
-    setMeeting({ ...meeting, [name]: value });
-  };
+  // const handleInputChange = (
+  //   event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   const { name, value } = event.currentTarget;
+  //   setMeeting({ ...meeting, [name]: value });
+  // };
+  //outdated
+
+  cont handleFinalFormSubmit = (values: any) => {
+    const { date, time, ...activity } = values;
+    const dateAndTime = combineDateAndTime(values.date, values.time);
+  }
 
   return (
     <Grid>
