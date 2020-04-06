@@ -40,7 +40,6 @@ export default class UserStore {
     }
   };
 
-
   @action getUser = async () => {
     try {
       const user = await agent.User.current();
@@ -51,7 +50,6 @@ export default class UserStore {
       console.log(error);
     }
   };
-
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
