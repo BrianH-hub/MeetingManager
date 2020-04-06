@@ -2,6 +2,7 @@ import React from 'react';
 import { Item, Button, Segment, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { IMeeting } from '../../../app/models/meeting';
+import {format} from 'date-fns';
 
 const MeetingListItem: React.FC<{ meeting: IMeeting }> = ({ meeting }) => {
     return (
@@ -18,7 +19,7 @@ const MeetingListItem: React.FC<{ meeting: IMeeting }> = ({ meeting }) => {
           </Item.Group>
         </Segment>
         <Segment>
-          <Icon name='clock' /> {meeting.date}
+        <Icon name='clock' /> {format(meeting.date, 'h:mm a')}
           <Icon name='marker' /> {meeting.venue}, {meeting.city}
         </Segment>
         <Segment secondary>Attendees will go here</Segment>

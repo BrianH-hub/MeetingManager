@@ -14,16 +14,20 @@ interface DetailParams {
 }
 
 const MeetingDetails: React.FC<RouteComponentProps<DetailParams>> = ({
-  match
+  match,
+  history
 }) => {
   const meetingStore = useContext(MeetingStore);
   const { meeting, loadMeeting, loadingInitial} = meetingStore;
 
     useEffect(() => {
       loadMeeting(match.params.id);
-    }, [loadMeeting, match.params.id]);
+    }, [loadMeeting, match.params.id, history]);
   
-    if (loadingInitial || !meeting) return <LoadingComponent content='Loading meeting...' />
+
+    if (loadingInitial) return <LoadingComponent content='Loading meeting...' />;
+
+    if (!meeting) return <h2>Meeting not found</h2>;
 
   return (
     <Grid>
