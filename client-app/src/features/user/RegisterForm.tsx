@@ -42,8 +42,8 @@ const RegisterForm = () => {
         <Form onSubmit={handleSubmit} error>
           <Header
             as='h2'
-            content='Login to Reactivities'
-            color='teal'
+            content='Sign Up For Meeting Manager'
+            color='blue'
             textAlign='center'
           />
           <Field name='email' component={TextInput} placeholder='Email' />
@@ -62,7 +62,7 @@ const RegisterForm = () => {
           <Button
             disabled={(invalid && !dirtySinceLastSubmit) || pristine}
             loading={submitting}
-            color='teal'
+            color='blue'
             content='Login'
             fluid
           />
