@@ -1,6 +1,7 @@
 import React from 'react';
 import { Segment, Grid, Icon } from 'semantic-ui-react';
 import { IMeeting } from '../../../app/models/meeting';
+import {format} from 'date-fns';
 
 const MeetingDetailedInfo: React.FC<{meeting: IMeeting}> = ({meeting}) => {
   return (
@@ -21,7 +22,7 @@ const MeetingDetailedInfo: React.FC<{meeting: IMeeting}> = ({meeting}) => {
             <Icon name='calendar' size='large' color='teal' />
           </Grid.Column>
           <Grid.Column width={15}>
-            <span>{meeting.date}</span>
+          <span>{format(meeting.date, 'eeee do MMMM')} at {format(meeting.date!, 'h:mm a')}</span>
           </Grid.Column>
         </Grid>
       </Segment>

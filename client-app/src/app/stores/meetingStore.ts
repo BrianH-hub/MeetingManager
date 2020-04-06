@@ -2,6 +2,8 @@ import { observable, action, computed, configure, runInAction } from 'mobx';
 import { createContext, SyntheticEvent } from 'react';
 import { IMeeting } from '../models/meeting';
 import agent from '../api/agent';
+import { history } from '../..';
+import { toast } from 'react-toastify';
 
 configure({enforceActions: 'always'});
 
@@ -18,10 +20,10 @@ class MeetingStore {
 
   groupMeetingsByDate(meetings: IMeeting[]) {
     const sortedMeetings = meetings.sort(
-      (a, b) => Date.parse(a.date) - Date.parse(b.date)
+      (a, b) => a.date.getTime() - b.date.getTime()
     )
     return Object.entries(sortedMeetings.reduce((meetings, meeting) => {
-      const date = meeting.date.split('T')[0];
+      const date = meeting.date.toISOString().split('T')[0];
       meetings[date] = meetings[date] ? [...meetings[date], meeting] : [meeting];
       return meetings;
     }, {} as {[key: string]: IMeeting[]}));
@@ -33,7 +35,7 @@ class MeetingStore {
       const meetings = await agent.Meetings.list();
       runInAction('loading meetings', () => {
         meetings.forEach(meeting => {
-          meeting.date = meeting.date.split('.')[0];
+          meeting.date = new Date(meeting.date);
           this.meetingRegistry.set(meeting.id, meeting);
         });
         this.loadingInitial = false;
@@ -49,14 +51,18 @@ class MeetingStore {
     let meeting = this.getMeeting(id);
     if (meeting) {
       this.meeting = meeting;
+      return meeting;
     } else {
       this.loadingInitial = true;
       try {
         meeting = await agent.Meetings.details(id);
         runInAction('getting meeting',()=>{
+          meeting.date = new Date(meeting.date);
           this.meeting = meeting;
+          this.meetingRegistry.set(meeting.id, meeting);
           this.loadingInitial = false;
         })
+        return meeting;
       } catch (error) {
           runInAction('get meeting error', () => {
             this.loadingInitial = false;
@@ -82,11 +88,13 @@ class MeetingStore {
         this.meetingRegistry.set(meeting.id, meeting);
         this.submitting = false;
       })
+      history.push(`/activities/${meeting.id}`)
     } catch (error) {
       runInAction('create meeting error', () => {
         this.submitting = false;
       })
-      console.log(error);
+      toast.error('Problem submitting data');
+      console.log(error.response);
     }
   };
 
@@ -99,10 +107,12 @@ class MeetingStore {
         this.meeting = meeting;
         this.submitting = false;
       })
+      history.push(`/activities/${meeting.id}`)
     } catch (error) {
       runInAction('edit meeting error', () => {
         this.submitting = false;
       })
+      toast.error('Problem submitting data');
       console.log(error);
     }
   };
