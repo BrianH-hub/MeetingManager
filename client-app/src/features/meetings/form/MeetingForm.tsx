@@ -18,6 +18,9 @@ import {
   composeValidators,
   hasLengthGreaterThan
 } from 'revalidate';
+import { RootStoreContext } from '../../../app/stores/rootStore';
+
+
 
 const validate = combineValidators({
   title: isRequired({ message: 'The event title is required' }),
