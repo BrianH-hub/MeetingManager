@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { Segment, Form, Button, Grid } from "semantic-ui-react";
 import { IMeeting, MeetingFormValues } from "../../../app/models/meeting";
 import { v4 as uuid } from "uuid";
-import { MeetingyFormValues } from "../../../app/models/meeting";
 import { observer } from "mobx-react-lite";
 import { Form as FinalForm, Field } from "react-final-form";
 import { RouteComponentProps } from "react-router";
