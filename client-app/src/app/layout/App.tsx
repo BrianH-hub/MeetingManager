@@ -1,19 +1,44 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Container } from "semantic-ui-react";
+
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-import {observer} from 'mobx-react-lite';
-import { Route, withRouter, RouteComponentProps, Switch } from "react-router-dom";
+
+import LoadingComponent from "./LoadingComponent";
+import { ToastContainer } from "react-toastify";
 import HomePage from "../../features/home/HomePage";
-import MeetingForm from "../../features/meetings/form/MeetingForm";
+import {
+  Route,
+  withRouter,
+  RouteComponentProps,
+  Switch,
+} from "react-router-dom";
 import MeetingDetails from "../../features/meetings/details/MeetingDetails";
-import NotFound from './NotFound';
-import {ToastContainer} from 'react-toastify';
+import MeetingForm from "../../features/meetings/form/MeetingForm";
+import NotFound from "./NotFound";
+import ModalContainer from "../common/modals/ModalContainer";
+import LoginForm from "../../features/user/LoginForm";
+import { RootStoreContext } from "../stores/rootStore";
+import { observer } from "mobx-react-lite";
+
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
+  const rootStore = useContext(RootStoreContext);
+  const { getUser } = rootStore.userStore;
+  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
 
+  useEffect(() => {
+    if (token) {
+      getUser().finally(() => setAppLoaded());
+    } else {
+      setAppLoaded();
+    }
+  }, [getUser, setAppLoaded, token]);
+
+  if (!appLoaded) return <LoadingComponent content="Loading app..." />;
   return (
     <Fragment>
+      <ModalContainer />
       <ToastContainer position='bottom-right' />
       <Route exact path='/' component={HomePage} />
       <Route
@@ -22,16 +47,17 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
           <Fragment>
             <NavBar />
             <Container style={{ marginTop: '7em' }}>
-            <Switch>
-              <Route exact path='/meetings' component={MeetingDashboard} />
-              <Route path='/meetings/:id' component={MeetingDetails} />
-              <Route
-                key={location.key}
-                path={['/createMeeting', '/manage/:id']}
-                component={MeetingForm}
-              />
-            <Route component={NotFound} />
-            </Switch>
+              <Switch>
+                <Route exact path='/activities' component={MeetingDashboard} />
+                <Route path='/activities/:id' component={MeetingDetails} />
+                <Route
+                  key={location.key}
+                  path={['/createActivity', '/manage/:id']}
+                  component={MeetingForm}
+                />
+                <Route path='/login' component={LoginForm} />
+                <Route component={NotFound} />
+              </Switch>
             </Container>
           </Fragment>
         )}
