@@ -2847,12 +2847,11 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4792,12 +4791,11 @@
       ]
     },
     "System.Runtime.Serialization.Primitives/4.3.0": {
-      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5596,20 +5594,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\": {}
+    "C:\\Users\\KillingAce\\.nuget\\packages\\": {},
+    "D:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Repo\\MeetingManager\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\ibrahimshahristani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Application\\obj\\",
+      "projectPath": "D:\\Repo\\MeetingManager\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\KillingAce\\.nuget\\packages\\",
+      "outputPath": "D:\\Repo\\MeetingManager\\Application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ibrahimshahristani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\KillingAce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -5621,11 +5626,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Domain\\Domain.csproj"
+            "D:\\Repo\\MeetingManager\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Repo\\MeetingManager\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\ibrahimshahristani\\Desktop\\work\\MeetingManager\\Persistence\\Persistence.csproj"
+            "D:\\Repo\\MeetingManager\\Persistence\\Persistence.csproj": {
+              "projectPath": "D:\\Repo\\MeetingManager\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -5668,7 +5673,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
