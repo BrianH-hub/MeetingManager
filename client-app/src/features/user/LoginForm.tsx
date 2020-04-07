@@ -12,7 +12,6 @@ import TextInput from '../../app/common/form/TextInput';
 
 
 
-
 const validate = combineValidators({
   email: isRequired('InputEmail'),
   pass: isRequired('Password')
