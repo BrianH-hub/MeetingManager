@@ -151,8 +151,8 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
                 <Button
                   onClick={
                     meeting.id
-                      ? () => history.push(`/meetings/${meeting.id}`)
-                      : () => history.push('/meetings')
+                      ? () => history.push(`/activities/${meeting.id}`)
+                      : () => history.push('/activities')
                   }
                   disabled={loading}
                   floated='right'
