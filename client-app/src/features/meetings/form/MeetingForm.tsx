@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { Segment, Form, Button, Grid } from "semantic-ui-react";
 import { IMeeting } from "../../../app/models/meeting";
 import { v4 as uuid } from "uuid";
-import { MeetingyFormValues } from "../../../app/models/meeting";
 import { observer } from "mobx-react-lite";
 import { Form as FinalForm, Field } from "react-final-form";
 import { RouteComponentProps } from "react-router";
@@ -82,6 +81,32 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
     }
   };
 
+<<<<<<< HEAD
+=======
+  // const handleInputChange = (
+  //   event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   const { name, value } = event.currentTarget;
+  //   setMeeting({ ...meeting, [name]: value });
+  // };
+  //outdated
+
+  cont handleFinalFormSubmit = (values: any) => {
+    const { date, time, ...meeting } = values;
+    const dateAndTime = combineDateAndTime(values.date, values.time);
+    meeting.date = dateAndTime;
+    if (!meeting.id) {
+      let newActivity = {
+        ...meeting,
+        id: uuid()
+      };
+            createMeeting(newMeeting);
+    } else {
+      editMeeting(meeting);
+    }
+  };
+
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
   return (
     <Grid>
       <Grid.Column width={10}>
@@ -93,14 +118,24 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
             render={({ handleSubmit, invalid, pristine }) => (
               <Form onSubmit={handleSubmit} loading={loading}>
                 <Field
+<<<<<<< HEAD
                   name='title'
                   placeholder='Title'
+=======
+                  name="title"
+                  placeholder="Title"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                   value={meeting.title}
                   component={TextInput}
                 />
                 <Field
+<<<<<<< HEAD
                   name='description'
                   placeholder='Description'
+=======
+                  name="description"
+                  placeholder="Description"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                   rows={3}
                   value={meeting.description}
                   component={TextAreaInput}
@@ -108,6 +143,7 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
                 <Field
                   component={SelectInput}
                   options={category}
+<<<<<<< HEAD
                   name='category'
                   placeholder='Category'
                   value={meeting.category}
@@ -118,47 +154,91 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
                     name='date'
                     date={true}
                     placeholder='Date'
+=======
+                  name="category"
+                  placeholder="Category"
+                  value={meeting.category}
+                />
+                <Form.Group widths="equal">
+                  <Field
+                    component={DateInput}
+                    name="date"
+                    date={true}
+                    placeholder="Date"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                     value={meeting.date}
                   />
                   <Field
                     component={DateInput}
+<<<<<<< HEAD
                     name='time'
                     time={true}
                     placeholder='Time'
+=======
+                    name="time"
+                    time={true}
+                    placeholder="Time"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                     value={meeting.time}
                   />
                 </Form.Group>
 
                 <Field
                   component={TextInput}
+<<<<<<< HEAD
                   name='city'
                   placeholder='City'
+=======
+                  name="city"
+                  placeholder="City"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                   value={meeting.city}
                 />
                 <Field
                   component={TextInput}
+<<<<<<< HEAD
                   name='venue'
                   placeholder='Venue'
+=======
+                  name="venue"
+                  placeholder="Venue"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                   value={meeting.venue}
                 />
                 <Button
                   loading={submitting}
                   disabled={loading || invalid || pristine}
+<<<<<<< HEAD
                   floated='right'
                   positive
                   type='submit'
                   content='Submit'
+=======
+                  floated="right"
+                  positive
+                  type="submit"
+                  content="Submit"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                 />
                 <Button
                   onClick={
                     meeting.id
                       ? () => history.push(`/activities/${meeting.id}`)
+<<<<<<< HEAD
                       : () => history.push('/activities')
                   }
                   disabled={loading}
                   floated='right'
                   type='button'
                   content='Cancel'
+=======
+                      : () => history.push("/activities")
+                  }
+                  disabled={loading}
+                  floated="right"
+                  type="button"
+                  content="Cancel"
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
                 />
               </Form>
             )}

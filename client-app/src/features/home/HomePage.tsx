@@ -61,5 +61,9 @@ const HomePage = () => {
     </Segment>
   );
 };
+<<<<<<< HEAD
 
 export default HomePage
+=======
+export default HomePage;
+>>>>>>> d9055bc4391aed05eb1cf7861e55806d49812e75
