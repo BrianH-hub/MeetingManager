@@ -22,13 +22,10 @@ import {
 import { observer } from "mobx-react-lite";
 
 
-const App = () => {
-  const [meetings, setMeetings] = useState<IMeeting[]>([]);
-  const [selectedMeeting, setSelectedMeeting] = useState<IMeeting | null>(null);
-  const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [target, setTarget] = useState('');
+const App: React.FC<RouteComponentProps> = ({ location }) => {
+  const rootStore = useContext(RootStoreContext);
+  const { getUser } = rootStore.userStore;
+  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
 
   const handleOpenCreateForm = () => {
     setSelectedMeeting(null);
