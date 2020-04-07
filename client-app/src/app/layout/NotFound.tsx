@@ -7,11 +7,11 @@ const NotFound = () => {
         <Segment placeholder>
             <Header icon>
                 <Icon name='search' />
-                Oops - we've looked everywhere but couldn't find this.
+                Item was not found.
             </Header>
             <Segment.Inline>
-                <Button as={Link} to='/meetings' primary>
-                    Return to Meetings page
+                <Button as={Link} to='/activities' primary>
+                    Return to Meetings
                 </Button>
             </Segment.Inline>
         </Segment>

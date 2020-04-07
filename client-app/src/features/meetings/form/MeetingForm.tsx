@@ -1,23 +1,26 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Segment, Form, Button, Grid } from 'semantic-ui-react';
-import { MeetingFormValues } from '../../../app/models/meeting';
-import {v4 as uuid} from 'uuid';
-import MeetingStore from '../../../app/stores/meetingStore';
-import { observer } from 'mobx-react-lite';
-import { RouteComponentProps } from 'react-router';
-import { Form as FinalForm, Field } from 'react-final-form';
-import TextInput from '../../../app/common/form/TextInput';
-import TextAreaInput from '../../../app/common/form/TextAreaInput';
-import SelectInput from '../../../app/common/form/SelectInput';
-import DateInput from '../../../app/common/form/DateInput';
-import { category } from '../../../app/common/options/categoryOptions';
-import { combineDateAndTime } from '../../../app/common/util/util';
+import React, { useState, useContext, useEffect } from "react";
+import { Segment, Form, Button, Grid } from "semantic-ui-react";
+import { IMeeting, MeetingFormValues } from "../../../app/models/meeting";
+import { v4 as uuid } from "uuid";
+import { MeetingyFormValues } from "../../../app/models/meeting";
+import { observer } from "mobx-react-lite";
+import { Form as FinalForm, Field } from "react-final-form";
+import { RouteComponentProps } from "react-router";
+import TextInput from "../../../app/common/form/TextInput";
+import TextAreaInput from "../../../app/common/form/TextAreaInput";
+import SelectInput from "../../../app/common/form/SelectInput";
+import DateInput from "../../../app/common/form/DateInput";
+import { category } from "../../../app/common/options/categoryOptions";
+import { combineDateAndTime } from "../../../app/common/util/util";
 import {
   combineValidators,
   isRequired,
   composeValidators,
-  hasLengthGreaterThan
-} from 'revalidate';
+  hasLengthGreaterThan,
+} from "revalidate";
+import { RootStoreContext } from "../../../app/stores/rootStore";
+import MeetingStore from "../../../app/stores/meetingStore";
+
 
 const validate = combineValidators({
   title: isRequired({ message: 'The event title is required' }),
@@ -73,7 +76,7 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
     if (!meeting.id) {
       let newMeeting = {
         ...meeting,
-        id: uuid()
+        id: uuid(),
       };
       createMeeting(newMeeting);
     } else {
