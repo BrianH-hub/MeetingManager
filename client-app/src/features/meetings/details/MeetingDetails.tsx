@@ -1,6 +1,6 @@
 import React, { useContext, useEffect  } from 'react';
 import { Grid } from 'semantic-ui-react';
-import MeetingStore from '../../../app/stores/meetingStore';
+import { RootStoreContext } from '../../../app/stores/rootStore';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
@@ -17,8 +17,8 @@ const MeetingDetails: React.FC<RouteComponentProps<DetailParams>> = ({
   match,
   history
 }) => {
-  const meetingStore = useContext(MeetingStore);
-  const { meeting, loadMeeting, loadingInitial} = meetingStore;
+  const rootStore = useContext(RootStoreContext);
+  const { meeting, loadMeeting, loadingInitial} = rootStore.meetingStore;
 
     useEffect(() => {
       loadMeeting(match.params.id);

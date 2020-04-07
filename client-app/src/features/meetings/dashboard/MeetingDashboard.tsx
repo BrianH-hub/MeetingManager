@@ -4,14 +4,17 @@ import MeetingList from './MeetingList';
 import { observer } from 'mobx-react-lite';
 import MeetingStore from '../../../app/stores/meetingStore';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
+import { RootStoreContext } from '../../../app/stores/rootStore';
 
 const MeetingDashboard: React.FC = () => {
-  const meetingStore = useContext(MeetingStore);
-  useEffect(() => {
-    meetingStore.loadMeetings();
-  }, [meetingStore]);
+const rootStore = useContext(RootStoreContext);
+  const {loadMeetings, loadingInitial} = rootStore.meetingStore;
 
-  if (meetingStore.loadingInitial)
+  useEffect(() => {
+    loadMeetings();
+  }, [loadMeetings]);
+
+  if (loadingInitial)
     return <LoadingComponent content='Loading meetings' />;
   return (
     <Grid>

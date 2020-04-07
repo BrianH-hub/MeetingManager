@@ -3,10 +3,12 @@ import { Item, Label } from 'semantic-ui-react';
 import MeetingStore from '../../../app/stores/meetingStore';
 import { observer } from 'mobx-react-lite';
 import MeetingListItem from './MeetingListItem';
+import {format} from 'date-fns';
+import { RootStoreContext } from '../../../app/stores/rootStore';
 
 const MeetingList: React.FC = () => {
-  const meetingStore = useContext(MeetingStore);
-  const { meetingsByDate } = meetingStore;
+  const rootStore = useContext(RootStoreContext);
+  const { meetingsByDate } = rootStore.meetingStore;
   return (
     <Fragment>
       {meetingsByDate.map(([group, meetings]) => (

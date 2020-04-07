@@ -5,6 +5,7 @@ import { configure } from "mobx";
 import CommonStore from "./commonStore";
 import ModalStore from "./modalStore";
 
+configure({enforceActions: 'always'});
 export class RootStore {
   commonStore: CommonStore;
   modalStore: ModalStore;

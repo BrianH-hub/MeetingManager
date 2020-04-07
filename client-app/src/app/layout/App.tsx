@@ -24,30 +24,19 @@ import { observer } from "mobx-react-lite";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);
-  const { getUser } = rootStore.userStore;
-  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
-
-  const handleOpenCreateForm = () => {
-    setSelectedMeeting(null);
-    setEditMode(true);
-  };
-
-
-
-const App: React.FC<RouteComponentProps> = ({ location }) => {
-  const rootStore = useContext(RootStoreContext);
-  const { getUser } = rootStore.userStore;
-  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
+  const {setAppLoaded, token, appLoaded} = rootStore.commonStore;
+  const {getUser} = rootStore.userStore;
 
   useEffect(() => {
     if (token) {
-      getUser().finally(() => setAppLoaded());
+      getUser().finally(() => setAppLoaded())
     } else {
       setAppLoaded();
     }
-  }, [getUser, setAppLoaded, token]);
+  }, [getUser, setAppLoaded, token])
 
-  if (!appLoaded) return <LoadingComponent content="Loading app..." />;
+  if (!appLoaded)  return <LoadingComponent content='Loading app...' />
+
   return (
     <Fragment>
       <ModalContainer />
@@ -58,7 +47,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
         render={() => (
           <Fragment>
             <NavBar />
-            <Container style={{ marginTop: '7em' }}>
+            <Container style={{ marginTop: '8em' }}>
               <Switch>
                 <Route exact path='/activities' component={MeetingDashboard} />
                 <Route path='/activities/:id' component={MeetingDetails} />
