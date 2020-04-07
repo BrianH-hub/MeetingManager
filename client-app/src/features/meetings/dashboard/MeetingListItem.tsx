@@ -27,7 +27,7 @@ const MeetingListItem: React.FC<{ meeting: IMeeting }> = ({ meeting }) => {
           <span>{meeting.description}</span>
           <Button
             as={Link}
-            to={`/meetings/${meeting.id}`}
+            to={`/activities/${meeting.id}`}
             floated='right'
             content='View'
             color='blue'
