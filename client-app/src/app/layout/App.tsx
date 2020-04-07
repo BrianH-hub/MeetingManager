@@ -1,10 +1,9 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-
+import React, { Fragment, useContext, useEffect } from "react";
 import { Container } from "semantic-ui-react";
-import { IMeeting } from "../models/meeting";
+
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-import agent from "../api/agent";
+
 import LoadingComponent from "./LoadingComponent";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../../features/home/HomePage";
@@ -37,7 +36,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   }, [getUser, setAppLoaded, token]);
 
   if (!appLoaded) return <LoadingComponent content="Loading app..." />;
-
+  return (
     <Fragment>
       <ModalContainer />
       <ToastContainer position='bottom-right' />
