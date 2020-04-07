@@ -3,4 +3,3 @@ bin/
 *.db
 .vs/
 obj/
-API/program.cs
