@@ -1,10 +1,5 @@
-import React, {
-  useState,
-  useEffect,
-  Fragment,
-  SyntheticEvent,
-  useContext,
-} from "react";
+import React, { Fragment, useContext, useEffect } from 'react';
+
 import { Container } from "semantic-ui-react";
 import { IMeeting } from "../models/meeting";
 import NavBar from "../../features/nav/NavBar";
@@ -27,6 +22,7 @@ import LoginForm from "../../features/user/LoginForm";
 import { RootStoreContext } from "../stores/rootStore";
 import { observer } from "mobx-react-lite";
 
+
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);
   const { getUser } = rootStore.userStore;
@@ -42,26 +38,33 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
 
   if (!appLoaded) return <LoadingComponent content="Loading app..." />;
 
-  return (
     <Fragment>
-      <NavBar openCreateForm={handleOpenCreateForm} />
-      <Container style={{ marginTop: "7em" }}>
-        <MeetingDashboard
-          meetings={meetings}
-          selectMeeting={handleSelectMeeting}
-          selectedMeeting={selectedMeeting}
-          editMode={editMode}
-          setEditMode={setEditMode}
-          setSelectedMeeting={setSelectedMeeting}
-          createMeeting={handleCreateMeeting}
-          editMeeting={handleEditMeeting}
-          deleteMeeting={handleDeleteMeeting}
-          submitting={submitting}
-          target={target}
-        />
-      </Container>
+      <ModalContainer />
+      <ToastContainer position='bottom-right' />
+      <Route exact path='/' component={HomePage} />
+      <Route
+        path={'/(.+)'}
+        render={() => (
+          <Fragment>
+            <NavBar />
+            <Container style={{ marginTop: '7em' }}>
+              <Switch>
+                <Route exact path='/activities' component={MeetingDashboard} />
+                <Route path='/activities/:id' component={MeetingDetails} />
+                <Route
+                  key={location.key}
+                  path={['/createActivity', '/manage/:id']}
+                  component={MeetingForm}
+                />
+                <Route path='/login' component={LoginForm} />
+                <Route component={NotFound} />
+              </Switch>
+            </Container>
+          </Fragment>
+        )}
+      />
     </Fragment>
   );
 };
 
-export default App;
+export default withRouter(observer(App));
