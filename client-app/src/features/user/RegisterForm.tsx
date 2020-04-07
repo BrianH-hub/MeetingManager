@@ -63,7 +63,7 @@ const RegisterForm = () => {
             disabled={(invalid && !dirtySinceLastSubmit) || pristine}
             loading={submitting}
             color='blue'
-            content='Login'
+            content='Register'
             fluid
           />
         </Form>
