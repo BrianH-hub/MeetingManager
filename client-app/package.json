@@ -15,7 +15,7 @@
     "@types/revalidate": "^1.1.2",
     "@types/uuid": "^7.0.2",
     "axios": "^0.19.2",
-    "date-fns": "^2.0.0",
+    "date-fns": "^2.11.1",
     "final-form": "^4.19.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^1.5.2",
@@ -54,4 +54,3 @@
     ]
   }
 }
-
