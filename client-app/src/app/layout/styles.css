@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:  rgb(243, 240, 240) !important;
+  background-color:  rgb(195, 195, 195) !important;
 }
 
 code {
@@ -19,9 +19,9 @@ code {
 
 
     142deg,
-    rgb(0,102,143)0%,
-    rgb(51,153,255)62%,
-    rgb(17, 189, 137)92%
+    rgb(0, 102, 153)0%,
+    rgb(51, 153, 255)62%,
+    rgb(42, 42, 42)98%
   ) !important;
 }
 
@@ -32,9 +32,9 @@ code {
   align-items: center;
   background-image: linear-gradient(
           135deg,
-          rgb(24, 42, 115) 0%,
-          rgb(33, 138, 174) 69%,
-          rgb(32, 167, 172) 89%
+          rgb(0, 102, 153) 0%,
+          rgb(51, 153, 255) 62%,
+           rgb(42, 42, 42)99%
   ) !important;
   height: 100vh;
 }

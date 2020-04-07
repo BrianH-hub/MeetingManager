@@ -10,15 +10,15 @@ const NavBar: React.FC = () => {
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item header as={NavLink} exact to='/'>
-            <img src="/assets/logo2.png" alt="logo" style={{marginRight: 10}}/>
-            MM
+            <img src="/assets/logo.png" alt="logo" style={{marginRight: 8}}/>
+            MeetingManager
         </Menu.Item>
         <Menu.Item name='Meetings'  as={NavLink} to='/meetings'/>
         <Menu.Item>
             <Button
              as={NavLink} to='/createMeeting'
             positive 
-            content='Create meeting' />
+            content='Create Event' />
         </Menu.Item>
                 <Menu.Item position="right">
           <Image avatar spaced="right" src={emptyProfile} />
