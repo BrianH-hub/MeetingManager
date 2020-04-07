@@ -1,9 +1,15 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  Fragment,
+  SyntheticEvent,
+  useContext,
+} from "react";
 import { Container } from "semantic-ui-react";
 
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-
+import agent from "../api/agent";
 import LoadingComponent from "./LoadingComponent";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../../features/home/HomePage";
@@ -21,7 +27,6 @@ import LoginForm from "../../features/user/LoginForm";
 import { RootStoreContext } from "../stores/rootStore";
 import { observer } from "mobx-react-lite";
 
-
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);
   const { getUser } = rootStore.userStore;
@@ -36,6 +41,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   }, [getUser, setAppLoaded, token]);
 
   if (!appLoaded) return <LoadingComponent content="Loading app..." />;
+
   return (
     <Fragment>
       <ModalContainer />
