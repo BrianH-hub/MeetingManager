@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Domain;
 using System.Text;
 using API.Middleware;
-using Application.Activities;
 using Application.Interfaces;
-using Domain;
 using FluentValidation.AspNetCore;
 using Infrastructure.Security;
 using MediatR;
@@ -19,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using Application.Activities;
 
 namespace API
 {
