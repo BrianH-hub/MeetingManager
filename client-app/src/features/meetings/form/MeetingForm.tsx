@@ -23,12 +23,12 @@ import MeetingStore from "../../../app/stores/meetingStore";
 
 
 const validate = combineValidators({
-  title: isRequired({ message: 'The event title is required' }),
+  title: isRequired({ message: 'The event name is required' }),
   category: isRequired('Category'),
   description: composeValidators(
     isRequired('Description'),
     hasLengthGreaterThan(4)({
-      message: 'Description needs to be at least 5 characters'
+      message: 'Description at least 5 characters'
     })
   )(),
   city: isRequired('City'),
@@ -46,13 +46,13 @@ const MeetingForm: React.FC<RouteComponentProps<DetailParams>> = ({
   match,
   history
 }) => {
-  const meetingStore = useContext(MeetingStore);
+  const rootStore = useContext(RootStoreContext);
   const {
     createMeeting,
     editMeeting,
     submitting,
     loadMeeting
-  } = meetingStore;
+  } = rootStore.meetingStore;
 
   const [meeting, setMeeting] = useState(new MeetingFormValues());
   const [loading, setLoading] = useState(false);
