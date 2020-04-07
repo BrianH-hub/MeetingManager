@@ -4,15 +4,22 @@ import { IMeeting } from '../models/meeting';
 import agent from '../api/agent';
 import { history } from '../..';
 import { toast } from 'react-toastify';
+import { RootStore } from './rootStore';
+import UserStore from './userStore';
 
-configure({enforceActions: 'always'});
+configure({ enforceActions: "always" });
 
-class MeetingStore {
+export default class MeetingStore {
+  rootStore: RootStore;
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore;
+  }
+  @observable selectedMeeting: IMeeting | undefined;
+  @observable target = "";
   @observable meetingRegistry = new Map();
   @observable meeting: IMeeting | null = null;
   @observable loadingInitial = false;
   @observable submitting = false;
-  @observable target = '';
 
   @computed get meetingsByDate() {
     return this.groupMeetingsByDate(Array.from(this.meetingRegistry.values()))
@@ -41,9 +48,9 @@ class MeetingStore {
         this.loadingInitial = false;
       })
     } catch (error) {
-      runInAction('load meetings error', () => {
+      runInAction("load meetings error", () => {
         this.loadingInitial = false;
-      })
+      });
     }
   };
 
@@ -84,13 +91,13 @@ class MeetingStore {
     this.submitting = true;
     try {
       await agent.Meetings.create(meeting);
-      runInAction('create meeting', () => {
+      runInAction("create meeting", () => {
         this.meetingRegistry.set(meeting.id, meeting);
         this.submitting = false;
       })
       history.push(`/activities/${meeting.id}`)
     } catch (error) {
-      runInAction('create meeting error', () => {
+      runInAction("create meeting error", () => {
         this.submitting = false;
       })
       toast.error('Problem submitting data');
@@ -102,14 +109,14 @@ class MeetingStore {
     this.submitting = true;
     try {
       await agent.Meetings.update(meeting);
-      runInAction('editing meeting', () => {
+      runInAction("editing meeting", () => {
         this.meetingRegistry.set(meeting.id, meeting);
         this.meeting = meeting;
         this.submitting = false;
       })
       history.push(`/activities/${meeting.id}`)
     } catch (error) {
-      runInAction('edit meeting error', () => {
+      runInAction("edit meeting error", () => {
         this.submitting = false;
       })
       toast.error('Problem submitting data');
@@ -117,25 +124,28 @@ class MeetingStore {
     }
   };
 
-  @action deleteMeeting = async (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
+  @action deleteMeeting = async (
+    event: SyntheticEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     this.submitting = true;
     this.target = event.currentTarget.name;
     try {
       await agent.Meetings.delete(id);
-      runInAction('deleting meeting', () => {
+      runInAction("deleting meeting", () => {
         this.meetingRegistry.delete(id);
         this.submitting = false;
-        this.target = '';
-      })
+        this.target = "";
+      });
     } catch (error) {
-      runInAction('delete meeting error', () => {
+      runInAction("delete meeting error", () => {
         this.submitting = false;
-        this.target = '';
-      })
+        this.target = "";
+      });
       console.log(error);
     }
-  }
+  };
 
 }
 
-export default createContext(new MeetingStore());
+// export default createContext(new MeetingStore());
