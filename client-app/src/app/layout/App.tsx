@@ -1,95 +1,69 @@
-import React, { useState, useEffect, Fragment, SyntheticEvent } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Container } from "semantic-ui-react";
-import { IMeeting } from "../models/meeting";
+
 import NavBar from "../../features/nav/NavBar";
 import MeetingDashboard from "../../features/meetings/dashboard/MeetingDashboard";
-import agent from "../api/agent";
-import LoadingComponent from './LoadingComponent'
-import {ToastContainer} from 'react-toastify';
-import HomePage from '../../features/home/HomePage';
-from 'react-router-dom';
-import MeetingDetails from '../../features/activities/details/ActivityDetails';
-import MeetingForm from '../../features/activities/form/ActivityForm';
-import NotFound from './NotFound';
-import ModalContainer from '../common/modals/ModalContainer';
-import LoginForm from '../../features/user/LoginForm';
-import { RootStoreContext } from '../stores/rootStore';
 
-const App = () => {
-  const [meetings, setMeetings] = useState<IMeeting[]>([]);
-  const [selectedMeeting, setSelectedMeeting] = useState<IMeeting | null>(null);
-  const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [target, setTarget] = useState('');
+import LoadingComponent from "./LoadingComponent";
+import { ToastContainer } from "react-toastify";
+import HomePage from "../../features/home/HomePage";
+import {
+  Route,
+  withRouter,
+  RouteComponentProps,
+  Switch,
+} from "react-router-dom";
+import MeetingDetails from "../../features/meetings/details/MeetingDetails";
+import MeetingForm from "../../features/meetings/form/MeetingForm";
+import NotFound from "./NotFound";
+import ModalContainer from "../common/modals/ModalContainer";
+import LoginForm from "../../features/user/LoginForm";
+import { RootStoreContext } from "../stores/rootStore";
+import { observer } from "mobx-react-lite";
 
-  const handleOpenCreateForm = () => {
-    setSelectedMeeting(null);
-    setEditMode(true);
-  };
 
-  const handleCreateMeeting = (meeting: IMeeting) => {
-    setSubmitting(true);
-    agent.Meetings.create(meeting).then(() => {
-      setMeetings([...meetings, meeting]);
-      setSelectedMeeting(meeting);
-      setEditMode(false);
-    }).then(() => setSubmitting(false));
-  };
-
-  const handleEditMeeting = (meeting: IMeeting) => {
-    setSubmitting(true);
-    agent.Meetings.update(meeting).then(() => {
-      setMeetings([...meetings.filter((a) => a.id !== meeting.id), meeting]);
-      setSelectedMeeting(meeting);
-      setEditMode(false);
-    }).then(() => setSubmitting(false));
-  };
-
-  const handleDeleteMeeting = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
-    setSubmitting(true)
-    setTarget(event.currentTarget.name);
-    agent.Meetings.delete(id).then(() => {
-      setMeetings([...meetings.filter((a) => a.id !== id)]);
-    }).then(() => setSubmitting(false));
-  };
-
-  const handleSelectMeeting = (id: string) => {
-    setSelectedMeeting(meetings.filter((a) => a.id === id)[0]);
-    setEditMode(false);
-  };
+const App: React.FC<RouteComponentProps> = ({ location }) => {
+  const rootStore = useContext(RootStoreContext);
+  const { getUser } = rootStore.userStore;
+  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
 
   useEffect(() => {
-    agent.Meetings.list().then((response) => {
-      let meetings: IMeeting[] = [];
-      response.forEach((meeting) => {
-        meeting.date = meeting.date.split(".")[0];
-        meetings.push(meeting);
-      });
-      setMeetings(meetings);
-    }).then(() => setLoading(false));
-  }, []);
-  if (loading) return <LoadingComponent content='Loading meetings' />
+    if (token) {
+      getUser().finally(() => setAppLoaded());
+    } else {
+      setAppLoaded();
+    }
+  }, [getUser, setAppLoaded, token]);
+
+  if (!appLoaded) return <LoadingComponent content="Loading app..." />;
   return (
     <Fragment>
-      <NavBar openCreateForm={handleOpenCreateForm} />
-      <Container style={{ marginTop: "7em" }}>
-        <MeetingDashboard
-          meetings={meetings}
-          selectMeeting={handleSelectMeeting}
-          selectedMeeting={selectedMeeting}
-          editMode={editMode}
-          setEditMode={setEditMode}
-          setSelectedMeeting={setSelectedMeeting}
-          createMeeting={handleCreateMeeting}
-          editMeeting={handleEditMeeting}
-          deleteMeeting={handleDeleteMeeting}
-          submitting={submitting}
-          target={target}
-        />
-      </Container>
+      <ModalContainer />
+      <ToastContainer position='bottom-right' />
+      <Route exact path='/' component={HomePage} />
+      <Route
+        path={'/(.+)'}
+        render={() => (
+          <Fragment>
+            <NavBar />
+            <Container style={{ marginTop: '7em' }}>
+              <Switch>
+                <Route exact path='/activities' component={MeetingDashboard} />
+                <Route path='/activities/:id' component={MeetingDetails} />
+                <Route
+                  key={location.key}
+                  path={['/createActivity', '/manage/:id']}
+                  component={MeetingForm}
+                />
+                <Route path='/login' component={LoginForm} />
+                <Route component={NotFound} />
+              </Switch>
+            </Container>
+          </Fragment>
+        )}
+      />
     </Fragment>
   );
 };
 
-export default App;
+export default withRouter(observer(App));
