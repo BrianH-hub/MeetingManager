@@ -1,10 +1,12 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using MediatR;
 using Persistence;
 
-namespace Application.Meetings
+namespace Application.Activities
 {
     public class Delete
     {
@@ -23,12 +25,12 @@ namespace Application.Meetings
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var Meeting = await _context.Meetings.FindAsync(request.Id);
+                var activity = await _context.Activities.FindAsync(request.Id);
 
-                if (Meeting == null)
-                    throw new Exception("Could not find Meeting");
+                if (activity == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Activity = "Not Found" });
 
-                _context.Remove(Meeting);              
+                _context.Remove(activity);              
 
                 var success = await _context.SaveChangesAsync() > 0;
 
