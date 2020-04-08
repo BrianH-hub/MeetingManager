@@ -9,7 +9,7 @@ A Meeting Manager app that will allow users to create and manage meetings. This 
 
 <a name="2"></a>
 ## 2. Features
-Belwo is the List of features that the meeting Manager Must to have:
+Below is the List of features that the meeting Manager Must to have:
 1. Register/Login
 2. Profile Page with bio and picture
 3. Confirm Attendance by choosing Attending or Not Attending

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Domain;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -7,8 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Persistence;
-
-
 
 namespace API
 {
@@ -25,14 +23,14 @@ namespace API
                 
                 {
                     var context = services.GetRequiredService<DataContext>();
-                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
                     context.Database.Migrate();
-                    Seed.SeedData(context, userManager).Wait();
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                    Seed.SeedData(context,userManager).Wait();
                 }
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "Error during migration");
+                    logger.LogError(ex, "An error occured during migration");
                 }
             }
 

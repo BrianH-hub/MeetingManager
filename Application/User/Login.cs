@@ -1,12 +1,13 @@
-﻿using System.Net;
+using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Rest;
 using Persistence;
 
 namespace Application.User
@@ -30,40 +31,41 @@ namespace Application.User
 
         public class Handler : IRequestHandler<Query, User>
         {
+            private readonly DataContext _context;
             private readonly UserManager<AppUser> _userManager;
             private readonly SignInManager<AppUser> _signInManager;
             private readonly IJwtGenerator _jwtGenerator;
-            public Handler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtGenerator jwtGenerator)
+
+            public Handler(DataContext context, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+            IJwtGenerator jwtGenerator)
             {
-                _jwtGenerator = jwtGenerator;
                 _signInManager = signInManager;
+                _jwtGenerator = jwtGenerator;
                 _userManager = userManager;
+                _context = context;
             }
 
             public async Task<User> Handle(Query request, CancellationToken cancellationToken)
             {
                 var user = await _userManager.FindByEmailAsync(request.Email);
-
-                if (user == null)
-                    throw new System.InvalidOperationException("Logfile cannot be read-only");
-
+                if(user == null)
+                    throw new RestException(HttpStatusCode.Unauthorized);
 
                 var result = await _signInManager
-                    .CheckPasswordSignInAsync(user, request.Password, false);
+                .CheckPasswordSignInAsync(user, request.Password, false);
 
-                if (result.Succeeded)
-                {
-                    // TODO: generate token
+                if(result.Succeeded){
                     return new User
                     {
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
-                        Image = null
+                        Image = user.Photos.FirstOrDefault(x=>x.IsMain)?.Url
                     };
                 }
 
-                throw new System.InvalidOperationException("Logfile cannot be read-only");
+                throw new RestException(HttpStatusCode.Unauthorized);
+
             }
         }
     }

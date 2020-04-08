@@ -1,17 +1,19 @@
 using System;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using Application.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-using Application.Errors;
-
-namespace API.Middleware{
-    public class ErrorHandlingMiddleware  {
-        private readonly RequestDelegate _next;
+namespace API.Middleware
+{
+    public class ErrorHandlingMiddleware
+    {
         private readonly ILogger<ErrorHandlingMiddleware> _logger;
-        public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
+        private readonly RequestDelegate _next;
+
+        public ErrorHandlingMiddleware(RequestDelegate next,ILogger<ErrorHandlingMiddleware> logger)
         {
             _logger = logger;
             _next = next;
@@ -22,8 +24,8 @@ namespace API.Middleware{
             try
             {
                 await _next(context);
-            } 
-            catch (Exception ex)
+            }
+            catch(Exception ex)
             {
                 await HandleExceptionAsync(context, ex, _logger);
             }
@@ -33,27 +35,30 @@ namespace API.Middleware{
         {
             object errors = null;
 
-            switch (ex)
+            switch(ex)
             {
                 case RestException re:
-                    logger.LogError(ex, "REST ERROR");
+                    logger.LogError(ex, "Rest Error");
                     errors = re.Errors;
                     context.Response.StatusCode = (int)re.Code;
                     break;
                 case Exception e:
-                    logger.LogError(ex, "ERROR SERVER");
+                    logger.LogError(ex, "Server Error");
                     errors = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
             }
+
             context.Response.ContentType = "application/json";
-            if (errors != null)       {
-                var result = JsonConvert.SerializeObject(new 
+             if (errors != null)
+            {
+                var result = JsonSerializer.Serialize(new 
                 {
                     errors
                 });
 
-                await context.Response.WriteAsync(result);     }
+                await context.Response.WriteAsync(result);
+            }
         }
     }
 }
