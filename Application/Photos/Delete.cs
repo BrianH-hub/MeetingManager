@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.Errors;
 using Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Photos
@@ -20,35 +21,31 @@ namespace Application.Photos
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IPhotoAccessor _photoAccessor;
             private readonly IUserAccessor _userAccessor;
-
-            public Handler(DataContext context, IUserAccessor userAccessor,
-            IPhotoAccessor photoAccessor)
+            private readonly IPhotoAccessor _photoAccessor;
+            public Handler(DataContext context, IUserAccessor userAccessor, IPhotoAccessor photoAccessor)
             {
+                _photoAccessor = photoAccessor;
                 _userAccessor = userAccessor;
                 _context = context;
-                _photoAccessor = photoAccessor;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = _context.Users.
-                SingleOrDefault(x => x.UserName == _userAccessor.GetCurrentUsername());
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
 
-                var photo = _context.Photos.
-                SingleOrDefault(x => x.Id == request.Id);
+                var photo = user.Photos.FirstOrDefault(x => x.Id == request.Id);
 
-                if(photo==null)
-                    throw new RestException(HttpStatusCode.NotFound, new { Photos = "Not Found" });
+                if (photo == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {Photo = "Not found"});
 
-                if(photo.IsMain)
-                    throw new RestException(HttpStatusCode.BadRequest, new { Photos = "You cannot delete your main photo" });
+                if (photo.IsMain)
+                    throw new RestException(HttpStatusCode.BadRequest, new {Photo = "You cannot delete your main photo"});
 
-                var result = _photoAccessor.DeletePhoto(request.Id);
+                var result = _photoAccessor.DeletePhoto(photo.Id);
 
-                if(result==null)
-                    throw new Exception("Problem deleteing Photo");
+                if (result == null)
+                    throw new Exception("Problem deleting photo");
 
                 user.Photos.Remove(photo);
 

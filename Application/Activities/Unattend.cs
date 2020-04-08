@@ -39,17 +39,15 @@ namespace Application.Activities
 
                 var attendance = await _context.UserActivities
                     .SingleOrDefaultAsync(x => x.ActivityId == activity.Id && 
-                        x.AppUserId == user.Id);
+                        x.AppUserId == user.Id); 
 
-                if(attendance == null)
-                    return Unit.Value;
+                if (attendance == null)
+                    return Unit.Value;   
 
-                if(attendance.IsHost)
-                    throw new RestException(HttpStatusCode.BadRequest, new
-                    { attendance="you cannot remove yourself as host" });
+                if (attendance.IsHost)
+                    throw new RestException(HttpStatusCode.BadRequest, new {Attendance = "You cannot remove yourself as host"});
 
                 _context.UserActivities.Remove(attendance);
-
 
                 var success = await _context.SaveChangesAsync() > 0;
 

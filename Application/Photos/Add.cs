@@ -13,7 +13,7 @@ namespace Application.Photos
 {
     public class Add
     {
-        public class Command : IRequest<Photo>
+        public class Command : IRequest<Domain.Photo>
         {
             public IFormFile File { get; set; }
         }
@@ -34,8 +34,7 @@ namespace Application.Photos
             {
                 var photoUploadResult = _photoAccessor.AddPhoto(request.File);
 
-                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName ==
-                  _userAccessor.GetCurrentUsername());
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
 
                 var photo = new Photo
                 {
@@ -43,10 +42,10 @@ namespace Application.Photos
                     Id = photoUploadResult.PublicId
                 };
 
-                if(!user.Photos.Any(x=>x.IsMain))
+                if (!user.Photos.Any(x => x.IsMain))
                     photo.IsMain = true;
 
-                user.Photos.Add(photo);
+                user.Photos.Add(photo);           
 
                 var success = await _context.SaveChangesAsync() > 0;
 

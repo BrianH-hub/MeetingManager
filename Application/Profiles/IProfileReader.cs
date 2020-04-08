@@ -4,6 +4,6 @@ namespace Application.Profiles
 {
     public interface IProfileReader
     {
-        Task<Profile> ReadProfile(string username);
+         Task<Profile> ReadProfile(string username);
     }
 }

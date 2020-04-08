@@ -8,10 +8,10 @@ using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Photos
 {
-    public class PhototAccessor : IPhotoAccessor
+    public class PhotoAccessor : IPhotoAccessor
     {
         private readonly Cloudinary _cloudinary;
-        public PhototAccessor(IOptions<CloudinarySettings> config)
+        public PhotoAccessor(IOptions<CloudinarySettings> config)
         {
             var acc = new Account
             (
@@ -22,29 +22,26 @@ namespace Infrastructure.Photos
 
             _cloudinary = new Cloudinary(acc);
         }
-        
+
         public PhotoUploadResult AddPhoto(IFormFile file)
         {
             var uploadResult = new ImageUploadResult();
 
-            if(file.Length>0)
+            if (file.Length > 0)
             {
-                using(var stream=file.OpenReadStream())
+                using (var stream = file.OpenReadStream())
                 {
-                    var upLoadParams = new ImageUploadParams
+                    var uploadParams = new ImageUploadParams
                     {
                         File = new FileDescription(file.FileName, stream),
-                        Transformation=new
-                        Transformation().Height(500).Width(500).Crop("fill").Gravity("face")
+                        Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face")
                     };
-                    uploadResult = _cloudinary.Upload(upLoadParams);
+                    uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }
 
-            if(uploadResult.Error!=null)
-            {
+            if (uploadResult.Error != null)
                 throw new Exception(uploadResult.Error.Message);
-            }
 
             return new PhotoUploadResult
             {
@@ -56,8 +53,10 @@ namespace Infrastructure.Photos
         public string DeletePhoto(string publicId)
         {
             var deleteParams = new DeletionParams(publicId);
+
             var result = _cloudinary.Destroy(deleteParams);
-            return result.Result == "ok"?result.Result:null;
+
+            return result.Result == "ok" ? result.Result : null;
         }
     }
 }

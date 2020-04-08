@@ -1,33 +1,18 @@
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\bin\Debug\netstandard2.0\Domain.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\bin\Debug\netstandard2.0\Domain.pdb
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section4\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.pdb
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.dll
-C:\Users\Admin\Documents\BCIT-SSD\Final Project\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.dll
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.dll
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.pdb
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfoInputs.cache
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.AssemblyInfo.cs
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.dll
-C:\Users\ibrahimshahristani\Desktop\work\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\Course Assets\SourceCode\Section22\Reactivities\Persistence\obj\Debug\netstandard2.0\Persistence.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.deps.json
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\bin\Debug\netstandard2.0\Persistence.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.csproj.CopyComplete
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.dll
+C:\Users\Admin\Documents\BCIT-SSD\Final Project\test2\MeetingManager\Persistence\obj\Debug\netstandard2.0\Persistence.pdb

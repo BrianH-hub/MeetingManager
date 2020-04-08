@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.Errors;
 using Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Photos
@@ -20,28 +21,26 @@ namespace Application.Photos
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IUserAccessor _useraccessor;
-            public Handler(DataContext context, IUserAccessor useraccessor)
+            private readonly IUserAccessor _userAccessor;
+            public Handler(DataContext context, IUserAccessor userAccessor)
             {
-                _useraccessor = useraccessor;
+                _userAccessor = userAccessor;
                 _context = context;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var user = _context.Users
-                .SingleOrDefault(x => x.UserName == _useraccessor.GetCurrentUsername());
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
 
-                var photo = user.Photos.SingleOrDefault(x => x.Id == request.Id);
+                var photo = user.Photos.FirstOrDefault(x => x.Id == request.Id);
 
-                if(photo==null)
-                    throw new RestException(HttpStatusCode.NotFound,
-                    new { Photos = "not found" });
+                if (photo == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {Photo = "Not found"});
 
-                var currentMain = user.Photos.SingleOrDefault(x => x.IsMain);
+                var currentMain = user.Photos.FirstOrDefault(x => x.IsMain);
 
                 currentMain.IsMain = false;
-                photo.IsMain = true;
+                photo.IsMain = true;          
 
                 var success = await _context.SaveChangesAsync() > 0;
 
