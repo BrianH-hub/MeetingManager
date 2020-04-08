@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -18,11 +17,9 @@ namespace Application.Profiles
         public class Handler : IRequestHandler<Query, Profile>
         {
             private readonly IProfileReader _profileReader;
-
             public Handler(IProfileReader profileReader)
             {
                 _profileReader = profileReader;
-
             }
 
             public async Task<Profile> Handle(Query request, CancellationToken cancellationToken)

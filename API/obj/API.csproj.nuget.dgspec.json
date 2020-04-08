@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\API\\API.csproj": {}
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\API\\API.csproj": {
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\API\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,20 +23,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj"
               },
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -48,19 +48,28 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
-            "Microsoft.AspNetCore.Identity.UI": {
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "NWebsec.AspNetCore.Middleware": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             }
           },
           "imports": [
@@ -73,26 +82,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj": {
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -104,20 +105,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\Persistence.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -129,7 +130,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netstandard2.0": {
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -137,11 +138,17 @@
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
-              "version": "[8.6.1, )"
+              "version": "[8.4.0, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
           "imports": [
@@ -154,23 +161,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj": {
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -182,14 +184,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -200,11 +202,17 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netstandard2.0": {
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
           "imports": [
@@ -217,23 +225,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -245,17 +248,17 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Application\\Application.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Application\\Application.csproj"
               }
             }
           }
@@ -267,11 +270,17 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netstandard2.0": {
           "dependencies": {
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.8.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -288,23 +297,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -316,17 +320,17 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test\\Reactivities-dev-first\\Domain\\Domain.csproj"
+              "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Documents\\BCIT-SSD\\Final Project\\test2\\MeetingManager\\Domain\\Domain.csproj"
               }
             }
           }
@@ -338,27 +342,33 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netstandard2.0": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[2.2.0, )"
             }
           },
           "imports": [
@@ -371,11 +381,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }

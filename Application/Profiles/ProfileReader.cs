@@ -6,11 +6,14 @@ using Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application.Profiles {
-    public class ProfileReader : IProfileReader {
+namespace Application.Profiles
+{
+    public class ProfileReader : IProfileReader
+    {
         private readonly DataContext _context;
         private readonly IUserAccessor _userAccessor;
-        public ProfileReader (DataContext context, IUserAccessor userAccessor) {
+        public ProfileReader(DataContext context, IUserAccessor userAccessor)
+        {
             _userAccessor = userAccessor;
             _context = context;
         }
@@ -19,11 +22,10 @@ namespace Application.Profiles {
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
 
-            if(user==null)
-                throw new RestException(HttpStatusCode.NotFound, new { User = "Not Found" });
+            if (user == null)
+                throw new RestException(HttpStatusCode.NotFound, new { User = "Not found" });
 
-            var currentUser = await _context.Users
-            .SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
+            var currentUser = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
 
             var profile = new Profile
             {
@@ -36,8 +38,10 @@ namespace Application.Profiles {
                 FollowingCount = user.Followings.Count(),
             };
 
-            if(currentUser.Followings.Any(x=>x.TargetId==user.Id))
+            if (currentUser.Followings.Any(x => x.TargetId == user.Id))
+            {
                 profile.IsFollowed = true;
+            }
 
             return profile;
         }

@@ -6,17 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class UserController:BaseController
+    public class UserController : BaseController
     {
-        [HttpPost("Login")]
         [AllowAnonymous]
+        [HttpPost("login")]
         public async Task<ActionResult<User>> Login(Login.Query query)
         {
             return await Mediator.Send(query);
         }
 
-        [HttpPost("Register")]
         [AllowAnonymous]
+        [HttpPost("register")]
         public async Task<ActionResult<User>> Register(Register.Command command)
         {
             return await Mediator.Send(command);

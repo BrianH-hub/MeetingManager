@@ -17,10 +17,10 @@ namespace Application.Comments
         {
             public string Body { get; set; }
             public Guid ActivityId { get; set; }
-            public string UserName { get; set; }
+            public string Username { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command,CommentDto>
+        public class Handler : IRequestHandler<Command, CommentDto>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -34,11 +34,10 @@ namespace Application.Comments
             {
                 var activity = await _context.Activities.FindAsync(request.ActivityId);
 
-                if(activity==null)
-                    throw new RestException(HttpStatusCode.NotFound, new
-                    { Activity = "Not Found" });
+                if (activity == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {Activity = "Not found"});
 
-                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == request.UserName);
+                var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == request.Username);
 
                 var comment = new Comment
                 {

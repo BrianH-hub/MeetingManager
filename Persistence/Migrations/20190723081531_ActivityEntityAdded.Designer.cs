@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190723081531_MeetingEntityAdded")]
-    partial class MeetingEntityAdded
+    [Migration("20190723081531_ActivityEntityAdded")]
+    partial class ActivityEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,7 @@ namespace Persistence.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
-            modelBuilder.Entity("Domain.Meeting", b =>
+            modelBuilder.Entity("Domain.Activity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -37,7 +37,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Meetings");
+                    b.ToTable("Activities");
                 });
 
             modelBuilder.Entity("Domain.Value", b =>

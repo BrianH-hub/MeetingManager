@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190805040819_PhotoEntityAdded")]
+    partial class PhotoEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,28 +94,6 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Domain.Comment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("ActivityId");
-
-                    b.Property<string>("AuthorId");
-
-                    b.Property<string>("Body");
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActivityId");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.Property<string>("Id")
@@ -147,19 +127,6 @@ namespace Persistence.Migrations
                     b.HasIndex("ActivityId");
 
                     b.ToTable("UserActivities");
-                });
-
-            modelBuilder.Entity("Domain.UserFollowing", b =>
-                {
-                    b.Property<string>("ObserverId");
-
-                    b.Property<string>("TargetId");
-
-                    b.HasKey("ObserverId", "TargetId");
-
-                    b.HasIndex("TargetId");
-
-                    b.ToTable("Followings");
                 });
 
             modelBuilder.Entity("Domain.Value", b =>
@@ -298,17 +265,6 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.Comment", b =>
-                {
-                    b.HasOne("Domain.Activity", "Activity")
-                        .WithMany("Comments")
-                        .HasForeignKey("ActivityId");
-
-                    b.HasOne("Domain.AppUser", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
-                });
-
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.HasOne("Domain.AppUser")
@@ -327,19 +283,6 @@ namespace Persistence.Migrations
                         .WithMany("UserActivities")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Domain.UserFollowing", b =>
-                {
-                    b.HasOne("Domain.AppUser", "Observer")
-                        .WithMany("Followings")
-                        .HasForeignKey("ObserverId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.AppUser", "Target")
-                        .WithMany("Followers")
-                        .HasForeignKey("TargetId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

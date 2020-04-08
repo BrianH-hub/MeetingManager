@@ -18,12 +18,11 @@ namespace Application.User
             private readonly UserManager<AppUser> _userManager;
             private readonly IJwtGenerator _jwtGenerator;
             private readonly IUserAccessor _userAccessor;
-            public Handler(UserManager<AppUser> userManager,IJwtGenerator jwtGenerator
-            ,IUserAccessor userAccessor)
+            public Handler(UserManager<AppUser> userManager, IJwtGenerator jwtGenerator, IUserAccessor userAccessor)
             {
+                _userAccessor = userAccessor;
                 _jwtGenerator = jwtGenerator;
                 _userManager = userManager;
-                _userAccessor = userAccessor;
             }
 
             public async Task<User> Handle(Query request, CancellationToken cancellationToken)
@@ -35,7 +34,7 @@ namespace Application.User
                     DisplayName = user.DisplayName,
                     Username = user.UserName,
                     Token = _jwtGenerator.CreateToken(user),
-                    Image = user.Photos.FirstOrDefault(x=>x.IsMain)?.Url
+                    Image = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
                 };
             }
         }
