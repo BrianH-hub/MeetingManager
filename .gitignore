@@ -3,3 +3,4 @@ bin/
 *.db
 .vs/
 obj/
+appsettings.json
