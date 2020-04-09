@@ -3,11 +3,13 @@
 2.[Features](#2)
 3.[Team](#3)
 
+## Live Demo: https://meetingmanagerssd.azurewebsites.net/
+
 <a name="1"></a>
 ## 1. Description
 A Meeting Manager app that will allow users to create and manage meetings. This app will be built using ASP.NET Core MVC and React
 
-## Live Demo: https://meetingmanagerssd.azurewebsites.net/
+
 
 <a name="2"></a>
 ## 2. Features
