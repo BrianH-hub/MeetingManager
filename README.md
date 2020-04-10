@@ -3,9 +3,9 @@
 2.[Features](#2)
 3.[Team](#3)
 
-## URL: https://meetingmanagerssd.azurewebsites.net/
+<a href="https://meetingmanagerssd.azurewebsites.net" target="_blank"> MeetingManager URL</a>
 
-## Demo Presentation: https://drive.google.com/file/d/1k4CRZwKZybFhVEcEQSn2nsbOX3QpMXeK/view?usp=sharing
+<a href= "https://drive.google.com/file/d/1k4CRZwKZybFhVEcEQSn2nsbOX3QpMXeK/view?usp=sharing"> Demo Presentation URL</a>
 
 <a name="1"></a>
 ## 1. Description
@@ -25,10 +25,15 @@ Below is the List of features that the meeting Manager Must to have:
   
 <a name="3"></a>
 ## 3. Team
-1. Brian 
-2. Ming
-3. Neil
-4. Ibrahim
+<a href="https://github.com/BrianH-hub" target="_blank"> 1. Brian </a>
+
+<a href="https://github.com/mingwang168" target="_blank"> 2. Ming </a>
+
+<a href="https://github.com/neilquizon" target="_blank"> 3. Neil </a>
+
+<a href="https://github.com/Ibrahimshahristani" target="_blank"> 4. Ibrahim </a>
+
+
 
 
 
