@@ -1,20 +1,28 @@
 # Final Project
-1.[Description](#1)
-2.[Features](#2)
-3.[Team](#3)
+
+1.[URLs](#4)
+
+2.[Description](#1)
+
+3.[Features](#2)
+
+4.[Team](#3)
+
+<a name="4"></a>
+## 1. URLs
 
 <a href="https://meetingmanagerssd.azurewebsites.net" target="_blank"> MeetingManager URL</a>
 
 <a href= "https://drive.google.com/file/d/1k4CRZwKZybFhVEcEQSn2nsbOX3QpMXeK/view?usp=sharing"> Demo Presentation URL</a>
 
 <a name="1"></a>
-## 1. Description
+## 2. Description
 A Meeting Manager app that will allow users to create and manage meetings. This app will be built using ASP.NET Core MVC and React
 
 
 
 <a name="2"></a>
-## 2. Features
+## 3. Features
 Below is the List of features that the meeting Manager Must to have:
 1. Register/Login
 2. Profile Page with bio and picture
@@ -24,7 +32,7 @@ Below is the List of features that the meeting Manager Must to have:
 6. Add Social Networking feature (Example: Follow/Unfollow User)
   
 <a name="3"></a>
-## 3. Team
+## 4. Team
 <a href="https://github.com/BrianH-hub" target="_blank"> 1. Brian </a>
 
 <a href="https://github.com/mingwang168" target="_blank"> 2. Ming </a>
