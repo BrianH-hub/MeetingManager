@@ -3,7 +3,9 @@
 2.[Features](#2)
 3.[Team](#3)
 
-## Live Demo: https://meetingmanagerssd.azurewebsites.net/
+## URL: https://meetingmanagerssd.azurewebsites.net/
+
+## Demo Presentation: https://drive.google.com/file/d/1k4CRZwKZybFhVEcEQSn2nsbOX3QpMXeK/view?usp=sharing
 
 <a name="1"></a>
 ## 1. Description
