@@ -11,7 +11,7 @@
 <a name="4"></a>
 ## 1. URLs
 
-<a href="https://meetingmanagerssd.azurewebsites.net" target="_blank"> MeetingManager URL</a>
+<a href="https://meetingmanager-ssd.azurewebsites.net" target="_blank"> MeetingManager URL</a>
 
 <a href= "https://drive.google.com/file/d/1k4CRZwKZybFhVEcEQSn2nsbOX3QpMXeK/view?usp=sharing"> Demo Presentation URL</a>
 
